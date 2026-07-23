@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+/* Pretendard Font fallback */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+}
+
+:root {
+  --primary-accent: #fc9d1b;
+  --bg-dark: #090817;
+  --text-main: #0a0a0a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
+  color: var(--text-main);
+  background-color: #fafafa;
+}
+
+::selection {
+  background-color: #fc9d1b;
+  color: #000000;
+}
+
+/* Hide scrollbar for chrome, safari and opera */
+.no-scrollbar::-webkit-scrollbar,
+.swiper-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar,
+.swiper-wrapper {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Swiper custom styling */
+.swiper-slide {
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Custom styling & utils */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text-accent {
+  color: var(--primary-accent);
+}
+
+.bg-accent {
+  background-color: var(--primary-accent);
+}
+
+/* Header blur effect */
+.header-glass {
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Hero container glassmorphic card */
+.hero-card {
+  background-color: rgba(20, 20, 20, 0.65);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Statistics container glass */
+.stats-card {
+  background-color: rgba(32, 32, 47, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 30px 80px rgba(0, 0, 0, 0.28);
+}
+
+/* Smooth transitions */
+.transition-all-custom {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects */
+.card-hover-zoom img {
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.card-hover-zoom:hover img {
+  transform: scale(1.05);
+}
