@@ -10,47 +10,40 @@
   <meta property="og:description" content="분야별로 원하는 AI 실무 적용 사례 정보를 빠르게 찾아보세요.">
   <meta property="og:type" content="website">
   <title>지피터스 리뉴얼 사이트</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Swiper CSS CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body
-  class="min-h-screen overflow-x-hidden bg-[#fafafa] font-['Pretendard','Noto_Sans_KR',Arial,sans-serif] text-[#0a0a0a] selection:bg-[#fc9d1b] selection:text-black">
+<body>
 
   <!-- Header / Navigation -->
-  <header class="absolute inset-x-0 top-0 z-30 border-b border-white/10 bg-black/35 backdrop-blur-sm">
-    <div class="mx-auto flex h-16 max-w-[1600px] items-center justify-between px-5 md:h-20 md:px-10">
+  <header class="header">
+    <div class="header-container">
       <!-- Logo -->
-      <a href="#top"
-        class="font-['Montserrat',sans-serif] text-xl font-extrabold tracking-[-0.06em] text-white md:text-2xl">
-        <img src="./assets/white-logo.png" alt="#">
+      <a href="#top" class="logo">
+        <img src="./assets/white-logo.png" alt="지피터스 로고">
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden items-center gap-9 text-[15px] text-white/90 lg:flex">
-        <a class="transition hover:text-[#fc9d1b]" href="#popular">AI커뮤니티</a>
-        <a class="transition hover:text-[#fc9d1b]" href="#events-section">AI스터디</a>
-        <a class="transition hover:text-[#fc9d1b]" href="#popular">AI챌린지</a>
-        <a class="transition hover:text-[#fc9d1b]" href="#contact">기업교육</a>
+      <nav class="desktop-nav">
+        <a href="#popular">AI커뮤니티</a>
+        <a href="#events-section">AI스터디</a>
+        <a href="#popular">AI챌린지</a>
+        <a href="#contact">기업교육</a>
       </nav>
 
       <!-- Desktop Utility Buttons -->
-      <div class="hidden items-center gap-3 text-white lg:flex">
-        <button aria-label="메시지" class="rounded-lg p-2.5 transition hover:bg-white/10">
+      <div class="desktop-utils">
+        <button aria-label="메시지" class="util-btn">
           <svg class="lucide lucide-message-circle" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
             <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
           </svg>
         </button>
-        <button aria-label="글쓰기" class="rounded-lg p-2.5 transition hover:bg-white/10">
+        <button aria-label="글쓰기" class="util-btn">
           <svg class="lucide lucide-file-pen-line" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
@@ -60,7 +53,7 @@
             <path d="M8 18h1" />
           </svg>
         </button>
-        <button aria-label="마이페이지" class="rounded-lg p-2.5 transition hover:bg-white/10">
+        <button aria-label="마이페이지" class="util-btn">
           <svg class="lucide lucide-circle-user-round" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
@@ -69,7 +62,7 @@
             <circle cx="12" cy="12" r="10" />
           </svg>
         </button>
-        <button aria-label="로그아웃" class="rounded-lg p-2.5 transition hover:bg-white/10">
+        <button aria-label="로그아웃" class="util-btn">
           <svg class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
@@ -81,7 +74,7 @@
       </div>
 
       <!-- Mobile Menu Toggle Button -->
-      <button id="mobile-menu-btn" aria-label="메뉴 열기" class="rounded-lg p-2 text-white lg:hidden">
+      <button id="mobile-menu-btn" aria-label="메뉴 열기" class="mobile-menu-btn">
         <svg id="menu-icon-open" class="lucide lucide-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
           viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
@@ -99,43 +92,31 @@
     </div>
 
     <!-- Mobile Nav Dropdown -->
-    <nav id="mobile-nav"
-      class="hidden flex-col border-t border-white/10 bg-[#0a0a0a]/95 px-5 py-4 text-white lg:hidden">
-      <a class="border-b border-white/10 py-3" href="#popular">AI커뮤니티</a>
-      <a class="border-b border-white/10 py-3" href="#events-section">AI스터디</a>
-      <a class="border-b border-white/10 py-3" href="#popular">AI챌린지</a>
-      <a class="border-b border-white/10 py-3" href="#contact">기업교육</a>
+    <nav id="mobile-nav" class="mobile-nav">
+      <a href="#popular">AI커뮤니티</a>
+      <a href="#events-section">AI스터디</a>
+      <a href="#popular">AI챌린지</a>
+      <a href="#contact">기업교육</a>
     </nav>
   </header>
 
   <!-- Section 1: Hero Section -->
-  <section id="top"
-    class="relative flex min-h-[800px] items-center justify-center bg-[#090817] px-5 py-36 md:min-h-[min(100vh,1120px)] md:py-48">
-    <!-- Background Video -->
-    <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 h-full w-full object-cover"
-      aria-label="AI 실무 적용 사례 검색 메인 배경 영상">
+  <section id="top" class="hero-section">
+    <video autoplay loop muted playsinline preload="auto" class="hero-video" aria-label="AI 실무 적용 사례 검색 메인 배경 영상">
       <source src="assets/visual_video_1.6407b2d8.mp4" type="video/mp4">
     </video>
 
-    <!-- Gradient Overlay -->
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_68%_30%,rgba(121,65,255,.22),transparent_28%),linear-gradient(180deg,rgba(4,4,14,.15),rgba(4,4,14,.76))]">
-    </div>
+    <div class="hero-overlay"></div>
 
-    <!-- Hero Card Container -->
-    <div
-      class="relative w-full max-w-[1320px] rounded-2xl border border-white/10 bg-[#141414]/65 px-6 py-16 shadow-2xl backdrop-blur-[3px] md:px-14 md:py-24">
-      <h1
-        class="max-w-5xl text-[clamp(2.3rem,4.3vw,4.1rem)] font-semibold leading-[1.25] tracking-[-0.055em] text-[#fafafa]">
-        분야별로 원하는 <span class="text-[#fc9d1b]">AI 실무 적용 사례 정보</span>를 빠르게 찾아보세요
+    <div class="hero-card">
+      <h1 class="hero-title">
+        분야별로 원하는 <span class="highlight">AI 실무 적용 사례 정보</span>를 빠르게 찾아보세요
       </h1>
 
-      <!-- Search Input Area -->
-      <div class="mt-10 border-b border-[#909090] pb-4 md:mt-14">
-        <div class="flex items-center gap-3">
-          <input id="search-input" aria-label="AI 사례 검색" type="text" placeholder="검색어를 입력해주세요"
-            class="min-w-0 flex-1 bg-transparent text-xl font-extralight tracking-[-.03em] text-white outline-none placeholder:text-[#a3a3a3] md:text-[1.75rem]">
-          <button id="search-btn" aria-label="검색" class="rounded-full p-2 text-[#fc9d1b] transition hover:scale-110">
+      <div class="search-box-wrapper">
+        <div class="search-flex">
+          <input id="search-input" aria-label="AI 사례 검색" type="text" placeholder="검색어를 입력해주세요" class="search-input">
+          <button id="search-btn" aria-label="검색" class="search-submit-btn">
             <svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round">
@@ -146,70 +127,48 @@
         </div>
       </div>
 
-      <!-- Recommended Tags -->
-      <div class="mt-7 flex flex-col gap-4 md:mt-8 md:flex-row md:items-center">
-        <span class="shrink-0 text-lg font-medium text-white md:text-[1.35rem]">추천 검색어</span>
-        <div class="flex flex-wrap gap-2.5 md:gap-3">
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#MCP활용</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#코딩/개발</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#이미지/사진</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#글쓰기/자소서</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#에이전트/자동화</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#마케팅/콘텐츠</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#연구/교육</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#대본/스피치</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#의료/바이오</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#비즈니스/제테크</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#영상/애니메이션</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#UX/UI
-            디자인</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#데이터
-            수집/분석</button>
-          <button
-            class="tag-btn rounded-lg bg-white/10 px-3.5 py-2 text-sm text-white transition hover:bg-[#fc9d1b] hover:text-black md:px-4 md:py-2.5 md:text-base">#음악/보이스</button>
+      <div class="tags-container">
+        <span class="tags-label">추천 검색어</span>
+        <div class="tags-list">
+          <button class="tag-btn">#MCP활용</button>
+          <button class="tag-btn">#코딩/개발</button>
+          <button class="tag-btn">#이미지/사진</button>
+          <button class="tag-btn">#글쓰기/자소서</button>
+          <button class="tag-btn">#에이전트/자동화</button>
+          <button class="tag-btn">#마케팅/콘텐츠</button>
+          <button class="tag-btn">#연구/교육</button>
+          <button class="tag-btn">#대본/스피치</button>
+          <button class="tag-btn">#의료/바이오</button>
+          <button class="tag-btn">#비즈니스/제테크</button>
+          <button class="tag-btn">#영상/애니메이션</button>
+          <button class="tag-btn">#UX/UI 디자인</button>
+          <button class="tag-btn">#데이터 수집/분석</button>
+          <button class="tag-btn">#음악/보이스</button>
         </div>
       </div>
 
-      <!-- Live Search Feedback Message -->
-      <p id="search-feedback" aria-live="polite" class="mt-5 text-sm text-[#fc9d1b] hidden"></p>
+      <p id="search-feedback" aria-live="polite" class="search-feedback hidden"></p>
     </div>
   </section>
 
   <!-- Section 2: Popular Posts Section -->
-  <section id="popular" class="relative overflow-hidden bg-white px-5 py-32 md:px-10 md:py-72">
-    <!-- Texture Overlay -->
-    <img src="assets/91ecb445fd1b8d6e2b9f51147d5bd8fc1fffe754.91ecb445.png" alt="부드러운 회색 질감 배경"
-      class="absolute inset-0 h-full w-full object-cover opacity-[.13]">
+  <section id="popular" class="popular-section">
+    <img src="assets/91ecb445fd1b8d6e2b9f51147d5bd8fc1fffe754.91ecb445.png" alt="부드러운 회색 질감 배경" class="section-texture">
 
-    <div class="relative mx-auto grid max-w-[1600px] gap-20 lg:grid-cols-[.73fr_1.27fr] lg:gap-28">
-      <!-- Section Header -->
-      <div class="flex flex-col items-start justify-between gap-10">
-        <div class="flex flex-col gap-3 md:gap-5">
-          <h2 class="text-[clamp(2rem,4.15vw,5rem)] font-bold leading-[1.05] tracking-[-0.055em] text-[#0a0a0a]">
-            Real-time <span class="text-[#fc9d1b]">Popular Posts</span>
+    <div class="popular-grid">
+      <div class="popular-header-col">
+        <div class="popular-titles">
+          <h2 class="section-heading">
+            Real-time <span class="highlight">Popular Posts</span>
           </h2>
-          <p class="text-base font-medium tracking-[-0.03em] text-[#252525] md:text-[1.35rem]">
+          <p class="section-desc">
             지금 가장 핫한 AI 실무 사례와 순위별 TOP 게시물을 만나보세요
           </p>
         </div>
 
-        <a href="#news"
-          class="inline-flex items-center gap-10 rounded-full border border-[#d4d4d4] bg-white py-3 pl-5 pr-3 text-base transition hover:border-[#fc9d1b] hover:text-[#fc9d1b]">
+        <a href="#news" class="view-all-btn">
           전체보기
-          <span class="grid size-7 place-items-center rounded-full bg-[#f4f4f4]">
+          <span class="arrow-circle">
             <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -220,131 +179,93 @@
         </a>
       </div>
 
-      <!-- Top 5 List -->
-      <ol class="border-t border-[#404040] self-end lg:mt-32">
-        <li class="flex min-h-16 items-center gap-4 border-b border-[#c8c8c8] py-3 text-base md:gap-8 md:text-xl">
-          <span class="w-11 shrink-0 font-medium text-[#fc9d1b]">1st.</span>
-          <span class="flex-1 font-medium tracking-[-.035em]">네이버 블로그 글쓰기, 어디까지 자동화할 수 있을까?</span>
-          <time class="hidden shrink-0 text-sm text-[#808080] sm:block">2026.00.00</time>
+      <ol class="popular-list">
+        <li class="popular-item">
+          <span class="rank-num">1st.</span>
+          <span class="rank-text">네이버 블로그 글쓰기, 어디까지 자동화할 수 있을까?</span>
+          <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="flex min-h-16 items-center gap-4 border-b border-[#c8c8c8] py-3 text-base md:gap-8 md:text-xl">
-          <span class="w-11 shrink-0 font-medium text-[#fc9d1b]">2nd.</span>
-          <span class="flex-1 font-medium tracking-[-.035em]">가족 튜터 에이전트에서 블로그 자동화, 랜딩페이지 생성까지</span>
-          <time class="hidden shrink-0 text-sm text-[#808080] sm:block">2026.00.00</time>
+        <li class="popular-item">
+          <span class="rank-num">2nd.</span>
+          <span class="rank-text">가족 튜터 에이전트에서 블로그 자동화, 랜딩페이지 생성까지</span>
+          <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="flex min-h-16 items-center gap-4 border-b border-[#c8c8c8] py-3 text-base md:gap-8 md:text-xl">
-          <span class="w-11 shrink-0 font-medium text-[#fc9d1b]">3rd.</span>
-          <span class="flex-1 font-medium tracking-[-.035em]">비개발자가 AI와 일주일 만에 '연구 자동화 서비스'를 만든 전 과정</span>
-          <time class="hidden shrink-0 text-sm text-[#808080] sm:block">2026.00.00</time>
+        <li class="popular-item">
+          <span class="rank-num">3rd.</span>
+          <span class="rank-text">비개발자가 AI와 일주일 만에 '연구 자동화 서비스'를 만든 전 과정</span>
+          <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="flex min-h-16 items-center gap-4 border-b border-[#c8c8c8] py-3 text-base md:gap-8 md:text-xl">
-          <span class="w-11 shrink-0 font-medium text-[#fc9d1b]">4th.</span>
-          <span class="flex-1 font-medium tracking-[-.035em]">Sovereign Quant — 자율 투자 인텔리전스 시스템</span>
-          <time class="hidden shrink-0 text-sm text-[#808080] sm:block">2026.00.00</time>
+        <li class="popular-item">
+          <span class="rank-num">4th.</span>
+          <span class="rank-text">Sovereign Quant — 자율 투자 인텔리전스 시스템</span>
+          <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="flex min-h-16 items-center gap-4 border-b border-[#c8c8c8] py-3 text-base md:gap-8 md:text-xl">
-          <span class="w-11 shrink-0 font-medium text-[#fc9d1b]">5th.</span>
-          <span class="flex-1 font-medium tracking-[-.035em]">코딩 모르는 자동화 담당자가 이틀 만에 상담센터 행정 웹앱을 배포했어요</span>
-          <time class="hidden shrink-0 text-sm text-[#808080] sm:block">2026.00.00</time>
+        <li class="popular-item">
+          <span class="rank-num">5th.</span>
+          <span class="rank-text">코딩 모르는 자동화 담당자가 이틀 만에 상담센터 행정 웹앱을 배포했어요</span>
+          <time class="rank-time">2026.00.00</time>
         </li>
       </ol>
     </div>
   </section>
 
   <!-- Section 3: Statistics Section -->
-  <section id="stats-section"
-    class="relative min-h-[900px] overflow-hidden bg-[#050510] px-5 py-28 text-white md:min-h-[1160px] md:px-10 md:py-64">
-    <!-- Background Image & Gradient -->
-    <img src="assets/639fad13f787e6aba34b222756cb6154ec5fd754.639fad13.png" alt="지피터스 통계 영역의 어두운 보라색 배경 그래픽"
-      class="absolute inset-0 h-full w-full object-cover object-center opacity-45">
-    <div class="absolute inset-0">
-    </div>
+  <section id="stats-section" class="stats-section">
+    <img src="assets/639fad13f787e6aba34b222756cb6154ec5fd754.639fad13.png" alt="통계 영역 배경 그래픽" class="stats-bg-img">
+    <div class="stats-overlay"></div>
 
-    <div class="relative mx-auto max-w-[1820px]">
-      <p
-        class="max-w-2xl text-[clamp(1.45rem,2vw,2.05rem)] font-medium leading-[1.58] tracking-[-.045em] text-white/95">
+    <div class="stats-container">
+      <p class="stats-intro">
         지피터스는 다양한 분야의 전문가들이 모여<br>
         AI의 새로운 가능성을 탐구하는 커뮤니티입니다.
       </p>
 
-      <!-- Stats Counters Grid -->
-      <div
-        class="mt-20 grid grid-cols-2 overflow-hidden rounded-[28px] border border-white/20 bg-[#20202f]/75 px-5 py-7 shadow-[inset_0_1px_0_rgba(255,255,255,.22),0_30px_80px_rgba(0,0,0,.28)] backdrop-blur-2xl md:mt-24 md:grid-cols-4 md:rounded-[30px] md:px-12 md:py-12">
-        <!-- Metric 1 -->
-        <div class="border-white/15 px-6 py-5 first:pl-0 md:border-r md:px-10 md:py-3 md:first:pl-10 md:last:border-0">
-          <p class="text-[clamp(2.35rem,3.65vw,4rem)] font-bold leading-none tracking-[-.065em] text-white"
-            data-stat-value="15000" data-stat-suffix="+">
-            0+
-          </p>
-          <p class="mt-3 text-sm text-[#a3a3b1] md:text-lg">커뮤니티 멤버</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <p class="stat-value" data-stat-value="15000" data-stat-suffix="+">0+</p>
+          <p class="stat-label">커뮤니티 멤버</p>
         </div>
-
-        <!-- Metric 2 -->
-        <div class="border-white/15 px-6 py-5 first:pl-0 md:border-r md:px-10 md:py-3 md:first:pl-10 md:last:border-0">
-          <p class="text-[clamp(2.35rem,3.65vw,4rem)] font-bold leading-none tracking-[-.065em] text-white"
-            data-stat-value="10000" data-stat-suffix="+">
-            0+
-          </p>
-          <p class="mt-3 text-sm text-[#a3a3b1] md:text-lg">누적 콘텐츠</p>
+        <div class="stat-item">
+          <p class="stat-value" data-stat-value="10000" data-stat-suffix="+">0+</p>
+          <p class="stat-label">누적 콘텐츠</p>
         </div>
-
-        <!-- Metric 3 -->
-        <div class="border-white/15 px-6 py-5 first:pl-0 md:border-r md:px-10 md:py-3 md:first:pl-10 md:last:border-0">
-          <p class="text-[clamp(2.35rem,3.65vw,4rem)] font-bold leading-none tracking-[-.065em] text-white"
-            data-stat-value="6500" data-stat-suffix="+">
-            0+
-          </p>
-          <p class="mt-3 text-sm text-[#a3a3b1] md:text-lg">AI 실무 사례</p>
+        <div class="stat-item">
+          <p class="stat-value" data-stat-value="6500" data-stat-suffix="+">0+</p>
+          <p class="stat-label">AI 실무 사례</p>
         </div>
-
-        <!-- Metric 4 -->
-        <div class="border-white/15 px-6 py-5 first:pl-0 md:border-r md:px-10 md:py-3 md:first:pl-10 md:last:border-0">
-          <p class="text-[clamp(2.35rem,3.65vw,4rem)] font-bold leading-none tracking-[-.065em] text-white"
-            data-stat-value="2000" data-stat-decimal="true">
-            0
-          </p>
-          <p class="mt-3 text-sm text-[#a3a3b1] md:text-lg">지피터스 시작</p>
+        <div class="stat-item">
+          <p class="stat-value" data-stat-value="2000" data-stat-decimal="true">0</p>
+          <p class="stat-label">지피터스 시작</p>
         </div>
       </div>
 
-      <!-- Watermark -->
-      <p
-        class="mt-20 text-center font-['Montserrat',sans-serif] text-[clamp(1.8rem,4vw,4.75rem)] font-extrabold leading-none tracking-[-.075em] text-[#3b3a50]/70">
+      <p class="stats-watermark">
         GPT-ers · AI Practical Life Service
       </p>
     </div>
   </section>
 
   <!-- Section 4: News Room Swiper Section -->
-  <section id="news" class="relative overflow-hidden bg-[#fafafa] px-5 py-32 md:px-10 md:py-64">
-    <!-- Texture Overlay -->
-    <img src="assets/e331133ed0bf0245257f25593b850775f2d75fcd.e331133e.png" alt="은은한 밝은 패턴 배경"
-      class="absolute inset-0 h-full w-full object-cover opacity-[.07]">
+  <section id="news" class="news-section">
+    <img src="assets/e331133ed0bf0245257f25593b850775f2d75fcd.e331133e.png" alt="패턴 배경" class="section-texture">
 
-    <div class="relative mx-auto max-w-[1600px]">
-      <div class="mb-9 flex items-end justify-between">
-        <div class="flex flex-col gap-3 md:gap-5">
-          <h2 class="text-[clamp(2rem,4.15vw,5rem)] font-bold leading-[1.05] tracking-[-0.055em] text-[#0a0a0a]">
-            News Room
-          </h2>
-          <p class="text-base font-medium tracking-[-0.03em] text-[#252525] md:text-[1.35rem]">
-            지피터스가 AI 관련 최신 뉴스를 알려드립니다.
-          </p>
+    <div class="news-container">
+      <div class="news-header">
+        <div class="popular-titles">
+          <h2 class="section-heading">News Room</h2>
+          <p class="section-desc">지피터스가 AI 관련 최신 뉴스를 알려드립니다.</p>
         </div>
 
-        <!-- Controls & Links -->
-        <div class="flex items-center gap-4">
-          <div class="flex items-center gap-2">
-            <button
-              class="news-prev rounded-full border border-gray-300 p-2 text-gray-700 hover:border-[#fc9d1b] hover:text-[#fc9d1b] transition">
+        <div class="swiper-controls-group">
+          <div class="swiper-arrow-box">
+            <button class="news-prev swiper-arrow-btn" aria-label="이전 뉴스">
               <svg class="lucide lucide-chevron-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </button>
-            <button
-              class="news-next rounded-full border border-gray-300 p-2 text-gray-700 hover:border-[#fc9d1b] hover:text-[#fc9d1b] transition">
+            <button class="news-next swiper-arrow-btn" aria-label="다음 뉴스">
               <svg class="lucide lucide-chevron-right" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -352,8 +273,7 @@
               </svg>
             </button>
           </div>
-          <a href="#contact"
-            class="hidden items-center gap-1 text-sm text-[#808080] sm:flex hover:text-[#fc9d1b] transition">
+          <a href="#contact" class="news-view-all">
             전체보기
             <svg class="lucide lucide-chevron-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -364,74 +284,56 @@
         </div>
       </div>
 
-      <!-- Swiper Container -->
-      <div id="news-swiper"
-        class="swiper news-swiper overflow-hidden mt-10 md:mt-14 cursor-grab active:cursor-grabbing">
+      <div id="news-swiper" class="swiper news-swiper">
         <div class="swiper-wrapper">
-          <!-- Slide 1 -->
           <div class="swiper-slide">
-            <article class="group">
-              <div class="aspect-[1.72] overflow-hidden rounded-lg bg-[#1f2532]">
-                <img src="assets/20bbe9eb020d48910df03db959d0c7ba98ab34fc.20bbe9eb.png"
-                  alt="Google, 잇따른 인재 유출 - AI 인재 전쟁"
-                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+            <article class="news-card group">
+              <div class="news-img-box">
+                <img src="assets/20bbe9eb020d48910df03db959d0c7ba98ab34fc.20bbe9eb.png" alt="Google, 잇따른 인재 유출"
+                  class="news-img">
               </div>
-              <h3 class="mt-4 text-base font-medium tracking-[-.035em] text-[#1d1d1f] md:text-lg">Google, 잇따른 인재 유출 - AI
-                인재 전쟁</h3>
-              <time class="mt-2 block text-sm text-[#808080]">2026-06-29</time>
+              <h3 class="news-title">Google, 잇따른 인재 유출 - AI 인재 전쟁</h3>
+              <time class="news-time">2026-06-29</time>
             </article>
           </div>
-
-          <!-- Slide 2 -->
           <div class="swiper-slide">
-            <article class="group">
-              <div class="aspect-[1.72] overflow-hidden rounded-lg bg-[#1f2532]">
-                <img src="assets/6b9d9de415a1d67fd15f5415e19d6eb03e6f88f5.6b9d9de4.png"
-                  alt="GPT-5.6 총정리, Sol·Terra·Luna 차이와 가격"
-                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+            <article class="news-card group">
+              <div class="news-img-box">
+                <img src="assets/6b9d9de415a1d67fd15f5415e19d6eb03e6f88f5.6b9d9de4.png" alt="GPT-5.6 총정리"
+                  class="news-img">
               </div>
-              <h3 class="mt-4 text-base font-medium tracking-[-.035em] text-[#1d1d1f] md:text-lg">GPT-5.6 총정리,
-                Sol·Terra·Luna 차이와 가격</h3>
-              <time class="mt-2 block text-sm text-[#808080]">2026.07.06</time>
+              <h3 class="news-title">GPT-5.6 총정리, Sol·Terra·Luna 차이와 가격</h3>
+              <time class="news-time">2026.07.06</time>
             </article>
           </div>
-
-          <!-- Slide 3 -->
           <div class="swiper-slide">
-            <article class="group">
-              <div class="aspect-[1.72] overflow-hidden rounded-lg bg-[#1f2532]">
+            <article class="news-card group">
+              <div class="news-img-box">
                 <img src="assets/dd8ae5d9e3a6650240fc34e89ac96e715b181e31.dd8ae5d9.png" alt="저커버그도 인정한 AI 에이전트 한계"
-                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                  class="news-img">
               </div>
-              <h3 class="mt-4 text-base font-medium tracking-[-.035em] text-[#1d1d1f] md:text-lg">저커버그도 인정한 AI 에이전트 한계
-              </h3>
-              <time class="mt-2 block text-sm text-[#808080]">2026.07.06</time>
+              <h3 class="news-title">저커버그도 인정한 AI 에이전트 한계</h3>
+              <time class="news-time">2026.07.06</time>
             </article>
           </div>
-
-          <!-- Slide 4 -->
           <div class="swiper-slide">
-            <article class="group">
-              <div class="aspect-[1.72] overflow-hidden rounded-lg bg-[#1f2532]">
+            <article class="news-card group">
+              <div class="news-img-box">
                 <img src="assets/de646381bc479c1281059b8d8ea11821834b2420.de646381.png" alt="AI 시대 커리어 조언 6가지"
-                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                  class="news-img">
               </div>
-              <h3 class="mt-4 text-base font-medium tracking-[-.035em] text-[#1d1d1f] md:text-lg">AI 시대 커리어 조언 6가지</h3>
-              <time class="mt-2 block text-sm text-[#808080]">2026.07.06</time>
+              <h3 class="news-title">AI 시대 커리어 조언 6가지</h3>
+              <time class="news-time">2026.07.06</time>
             </article>
           </div>
-
-          <!-- Slide 5 -->
           <div class="swiper-slide">
-            <article class="group">
-              <div class="aspect-[1.72] overflow-hidden rounded-lg bg-[#1f2532]">
+            <article class="news-card group">
+              <div class="news-img-box">
                 <img src="assets/20bbe9eb020d48910df03db959d0c7ba98ab34fc.20bbe9eb.png"
-                  alt="커서 IOS 폰으로 AI 코딩 에이전트를 하는 시대"
-                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                  alt="커서 IOS 폰으로 AI 코딩 에이전트를 하는 시대" class="news-img">
               </div>
-              <h3 class="mt-4 text-base font-medium tracking-[-.035em] text-[#1d1d1f] md:text-lg">커서 IOS 폰으로 AI 코딩 에이전트를
-                하는 시대</h3>
-              <time class="mt-2 block text-sm text-[#808080]">2026.07.07</time>
+              <h3 class="news-title">커서 IOS 폰으로 AI 코딩 에이전트를 하는 시대</h3>
+              <time class="news-time">2026.07.07</time>
             </article>
           </div>
         </div>
@@ -440,50 +342,35 @@
   </section>
 
   <!-- Section 5: Full Width Video Banner Section -->
-  <section
-    class="relative flex min-h-[520px] items-center justify-center overflow-hidden bg-black px-5 py-20 text-center md:min-h-[1200px]">
-    <!-- Background Video -->
-    <video autoplay loop muted playsinline preload="auto" class="absolute inset-0 h-full w-full object-cover"
-      aria-label="최신 AI 소식의 허브 배경 영상">
+  <section class="banner-section">
+    <video autoplay loop muted playsinline preload="auto" class="hero-video" aria-label="최신 AI 소식의 허브 배경 영상">
       <source src="assets/main_visual_video.8e52b77f.mp4" type="video/mp4">
     </video>
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/50"></div>
-
-    <!-- Text -->
-    <div
-      class="relative flex flex-col gap-4 text-[clamp(1.55rem,3.6vw,4.2rem)] font-bold leading-[1.18] tracking-[-.06em] text-white/95">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
       <p>최신 AI 소식의 허브</p>
       <p>국내 최대 AI 커뮤니티 지피터스에서</p>
-      <p class="text-[#fc9d1b]">다양한 AI 실무 활용 사례를 만나보세요.</p>
+      <p class="highlight">다양한 AI 실무 활용 사례를 만나보세요.</p>
     </div>
   </section>
 
   <!-- Section 6: Events & Webinars Swiper Section -->
-  <section id="events-section" class="relative bg-white px-5 py-32 md:px-10 md:py-64">
-    <div class="mx-auto max-w-[1600px]">
-      <div class="flex items-end justify-between">
-        <div class="flex flex-col gap-3 md:gap-5">
-          <h2 class="text-[clamp(2rem,4.15vw,5rem)] font-bold leading-[1.05] tracking-[-0.055em] text-[#0a0a0a]">
-            Events & Webinars
-          </h2>
-          <p class="text-base font-medium tracking-[-0.03em] text-[#252525] md:text-[1.35rem]">
-            AI 관련 무료 이벤트와 유료 웨비나를 소개합니다.
-          </p>
+  <section id="events-section" class="events-section">
+    <div class="events-container">
+      <div class="news-header">
+        <div class="popular-titles">
+          <h2 class="section-heading">Events & Webinars</h2>
+          <p class="section-desc">AI 관련 무료 이벤트와 유료 웨비나를 소개합니다.</p>
         </div>
-
-        <!-- Controls -->
-        <div class="flex items-center gap-2">
-          <button
-            class="events-prev rounded-full border border-gray-300 p-2 text-gray-700 hover:border-[#fc9d1b] hover:text-[#fc9d1b] transition">
+        <div class="swiper-arrow-box">
+          <button class="events-prev swiper-arrow-btn" aria-label="이전 이벤트">
             <svg class="lucide lucide-chevron-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
               <path d="m15 18-6-6 6-6" />
             </svg>
           </button>
-          <button
-            class="events-next rounded-full border border-gray-300 p-2 text-gray-700 hover:border-[#fc9d1b] hover:text-[#fc9d1b] transition">
+          <button class="events-next swiper-arrow-btn" aria-label="다음 이벤트">
             <svg class="lucide lucide-chevron-right" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -493,25 +380,21 @@
         </div>
       </div>
 
-      <!-- Events Swiper Container -->
-      <div id="events-swiper"
-        class="swiper events-swiper overflow-hidden mt-10 md:mt-14 cursor-grab active:cursor-grabbing">
+      <div id="events-swiper" class="swiper events-swiper">
         <div class="swiper-wrapper">
-          <!-- Slide 1 -->
           <div class="swiper-slide">
-            <article class="group relative aspect-[1.35] w-full overflow-hidden rounded-lg bg-black">
-              <img src="assets/6d2258951ec63814982f6cb8686d04fd8b0cfe40.6d225895.png" alt="온라인 설명회"
-                class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105">
-              <div class="absolute inset-x-0 bottom-0 to-transparent px-5 pb-5 pt-24">
-                <p class="text-base font-medium text-[#fc9d1b]">[AI 스터디 23기]</p>
-                <p class="mt-2 text-xl font-medium tracking-[-.035em] text-white">온라인 설명회</p>
-                <p class="mt-4 text-xs leading-5 text-white/75">
+            <article class="event-card group">
+              <img src="assets/6d2258951ec63814982f6cb8686d04fd8b0cfe40.6d225895.png" alt="온라인 설명회" class="event-img">
+              <div class="event-info">
+                <p class="event-tag">[AI 스터디 23기]</p>
+                <p class="event-title">온라인 설명회</p>
+                <p class="event-date">
                   시작 일시 : 2026.07.13. 오후 9:00<br>
                   종료 일시 : 2026.07.13. 오후 10:00
                 </p>
-                <span class="mt-4 inline-flex text-sm text-[#fc9d1b]">
+                <span class="event-more">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right ml-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M5 12h14" />
@@ -521,22 +404,19 @@
               </div>
             </article>
           </div>
-
-          <!-- Slide 2 -->
           <div class="swiper-slide">
-            <article class="group relative aspect-[1.35] w-full overflow-hidden rounded-lg bg-black">
-              <img src="assets/cc9b142080c93542fc178dd2f2771d4317ad1e4e.cc9b1420.png" alt="AI 좀 써봤는데, 다음 단계는 뭘까요?"
-                class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105">
-              <div class="absolute inset-x-0 bottom-0 to-transparent px-5 pb-5 pt-24">
-                <p class="text-base font-medium text-[#fc9d1b]">[중급]</p>
-                <p class="mt-2 text-xl font-medium tracking-[-.035em] text-white">AI 좀 써봤는데, 다음 단계는 뭘까요?</p>
-                <p class="mt-4 text-xs leading-5 text-white/75">
+            <article class="event-card group">
+              <img src="assets/cc9b142080c93542fc178dd2f2771d4317ad1e4e.cc9b1420.png" alt="AI 중급 웨비나" class="event-img">
+              <div class="event-info">
+                <p class="event-tag">[중급]</p>
+                <p class="event-title">AI 좀 써봤는데, 다음 단계는 뭘까요?</p>
+                <p class="event-date">
                   시작 일시 : 2026.07.13. 오후 9:00<br>
                   종료 일시 : 2026.07.13. 오후 10:00
                 </p>
-                <span class="mt-4 inline-flex text-sm text-[#fc9d1b]">
+                <span class="event-more">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right ml-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M5 12h14" />
@@ -546,22 +426,19 @@
               </div>
             </article>
           </div>
-
-          <!-- Slide 3 -->
           <div class="swiper-slide">
-            <article class="group relative aspect-[1.35] w-full overflow-hidden rounded-lg bg-black">
-              <img src="assets/202d70896128c388c1195800781362c44cca2413.202d7089.png" alt="이제, 나만의 AI 시스템을 만들 차례"
-                class="h-full w-full object-cover opacity-75 transition duration-500 group-hover:scale-105">
-              <div class="absolute inset-x-0 bottom-0 to-transparent px-5 pb-5 pt-24">
-                <p class="text-base font-medium text-[#fc9d1b]">[고급]</p>
-                <p class="mt-2 text-xl font-medium tracking-[-.035em] text-white">이제, 나만의 AI 시스템을 만들 차례</p>
-                <p class="mt-4 text-xs leading-5 text-white/75">
+            <article class="event-card group">
+              <img src="assets/202d70896128c388c1195800781362c44cca2413.202d7089.png" alt="AI 고급 웨비나" class="event-img">
+              <div class="event-info">
+                <p class="event-tag">[고급]</p>
+                <p class="event-title">이제, 나만의 AI 시스템을 만들 차례</p>
+                <p class="event-date">
                   시작 일시 : 2026.07.09. 오후 9:00<br>
                   종료 일시 : 2026.07.09. 오후 11:00
                 </p>
-                <span class="mt-4 inline-flex text-sm text-[#fc9d1b]">
+                <span class="event-more">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right ml-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round">
                     <path d="M5 12h14" />
@@ -574,44 +451,35 @@
         </div>
       </div>
 
-      <p
-        class="mt-10 text-right font-['Montserrat',sans-serif] text-[clamp(2.5rem,7vw,8rem)] font-extrabold leading-none tracking-[-.08em] text-[#e5e5e5]">
-        GPTERS
-      </p>
+      <p class="events-watermark">GPTERS</p>
     </div>
   </section>
 
   <!-- Section 7: Inquiries and Subscriptions Section -->
-  <section id="contact" class="relative overflow-hidden bg-[#1a0751] px-5 py-32 text-white md:px-10 md:py-64">
-    <!-- Purple Network Graphic Background -->
-    <img src="assets/38acd9acaba6c92b7654104097155a2d840b1a51.38acd9ac.png" alt="점과 선으로 구성된 보라색 네트워크 그래픽"
-      class="absolute inset-0 h-full w-full object-cover opacity-55">
+  <section id="contact" class="contact-section">
+    <img src="assets/38acd9acaba6c92b7654104097155a2d840b1a51.38acd9ac.png" alt="네트워크 그래픽" class="section-texture">
 
-    <div class="relative mx-auto grid max-w-[1600px] items-center gap-12 lg:grid-cols-[.75fr_1.25fr] lg:gap-24">
-      <h2 class="text-[clamp(3rem,5vw,5rem)] font-bold leading-[1.02] tracking-[-.065em]">
-        <span class="text-[#fc9d1b]">Inquiries</span><br>
+    <div class="contact-container">
+      <h2 class="contact-main-title">
+        <span class="highlight">Inquiries</span><br>
         and<br>
-        <span class="text-[#fc9d1b]">Subscriptions</span>
+        <span class="highlight">Subscriptions</span>
       </h2>
 
-      <div class="grid gap-6 md:grid-cols-2">
-        <!-- Feature 1: Newsletter -->
-        <article
-          class="group relative min-h-[420px] overflow-hidden rounded-[10px] bg-black p-8 md:min-h-[480px] md:p-10">
-          <img src="assets/c123478f80451235cdb4e84ed3f867ef0627dbf3.c123478f.png" alt="뉴스레터 구독하기"
-            class="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-700 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/15"></div>
-          <div class="relative flex h-full flex-col items-start">
-            <p class="text-sm text-white/90 md:text-base">최신 트렌드부터 맞춤 활용법까지</p>
-            <h3 class="mt-3 text-3xl font-semibold leading-[1.1] tracking-[-.06em] md:text-[2.5rem]">
+      <div class="contact-grid">
+        <article class="feature-card group">
+          <img src="assets/c123478f80451235cdb4e84ed3f867ef0627dbf3.c123478f.png" alt="뉴스레터 구독" class="feature-bg-img">
+          <div class="feature-gradient"></div>
+          <div class="feature-content">
+            <p class="feature-sub">최신 트렌드부터 맞춤 활용법까지</p>
+            <h3 class="feature-title">
               가장 빠른 AI 소식지<br>
-              <span class="text-[#fc9d1b]">무료 구독</span>
+              <span class="highlight">무료 구독</span>
             </h3>
-            <p class="mt-8 max-w-sm text-sm leading-6 text-white/85">
+            <p class="feature-desc">
               지피터스 뉴스레터는 모두가 AI 발전 속도에 뒤처지지 않도록 꼭 필요한 주간 뉴스와 커뮤니티의 가장 흥미로운 AI 활용법을 전해드립니다.
             </p>
-            <button
-              class="mt-auto inline-flex items-center gap-8 rounded-full border border-[#d4d4d4] px-5 py-3 text-sm text-[#d4d4d4] transition hover:border-[#fc9d1b] hover:text-[#fc9d1b]">
+            <button class="feature-btn">
               뉴스레터 구독하기
               <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -623,23 +491,19 @@
           </div>
         </article>
 
-        <!-- Feature 2: Corporate Training -->
-        <article
-          class="group relative min-h-[420px] overflow-hidden rounded-[10px] bg-black p-8 md:min-h-[480px] md:p-10">
-          <img src="assets/056c9026d9544cf42934a4bb5726201d72dd9088.056c9026.png" alt="기업교육 문의하기"
-            class="absolute inset-0 h-full w-full object-cover opacity-70 transition duration-700 group-hover:scale-105">
-          <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/15"></div>
-          <div class="relative flex h-full flex-col items-start">
-            <p class="text-sm text-white/90 md:text-base">100% 결과물 완전 보장</p>
-            <h3 class="mt-3 text-3xl font-semibold leading-[1.1] tracking-[-.06em] md:text-[2.5rem]">
+        <article class="feature-card group">
+          <img src="assets/056c9026d9544cf42934a4bb5726201d72dd9088.056c9026.png" alt="기업교육 문의" class="feature-bg-img">
+          <div class="feature-gradient"></div>
+          <div class="feature-content">
+            <p class="feature-sub">100% 결과물 완전 보장</p>
+            <h3 class="feature-title">
               기업 맞춤형<br>
-              <span class="text-[#fc9d1b]">초개인화</span> 워크샵
+              <span class="highlight">초개인화</span> 워크샵
             </h3>
-            <p class="mt-8 max-w-sm text-sm leading-6 text-white/85">
+            <p class="feature-desc">
               우리 팀의 AI 역량을 높이고 싶으신가요? 기업 맞춤 교육부터 워크숍, 컨설팅까지 지피터스가 함께합니다.
             </p>
-            <button
-              class="mt-auto inline-flex items-center gap-8 rounded-full border border-[#d4d4d4] px-5 py-3 text-sm text-[#d4d4d4] transition hover:border-[#fc9d1b] hover:text-[#fc9d1b]">
+            <button class="feature-btn">
               기업교육 문의하기
               <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -655,13 +519,11 @@
   </section>
 
   <!-- Section 8: Footer -->
-  <footer class="bg-[#0a0a0a] px-5 py-14 text-white/55 md:px-10 md:py-20">
-    <div class="mx-auto grid max-w-[1600px] gap-12 md:grid-cols-[1fr_auto] md:items-start">
-      <!-- Left Info -->
+  <footer class="footer">
+    <div class="footer-container">
       <div>
-        <img src="assets/96426b9c4aa5258e67a24d1638dd83e8b311e885.96426b9c.png" alt="GPTERS 로고"
-          class="h-9 w-auto object-contain object-left">
-        <div class="mt-7 text-sm leading-6 text-[#808080]">
+        <img src="assets/96426b9c4aa5258e67a24d1638dd83e8b311e885.96426b9c.png" alt="GPTERS 로고" class="footer-logo">
+        <div class="footer-info">
           <p>지니파이 주식회사 / 대표: 김태현</p>
           <p>주소: 서울특별시 강남구 역삼로 165, 해성빌딩 701호 지니파이(주)</p>
           <p>사업자등록번호: 514-86-02743</p>
@@ -670,10 +532,9 @@
         </div>
       </div>
 
-      <!-- Right Links & Socials -->
-      <div class="flex flex-col items-start gap-8 md:items-end">
-        <div class="flex gap-4">
-          <a aria-label="Instagram" href="#top" class="rounded-full p-1 text-[#d4d4d4] hover:text-[#fc9d1b]">
+      <div class="footer-right">
+        <div class="social-links">
+          <a aria-label="Instagram" href="#top" class="social-btn">
             <svg class="lucide lucide-instagram" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round">
@@ -682,7 +543,7 @@
               <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
             </svg>
           </a>
-          <a aria-label="YouTube" href="#top" class="rounded-full p-1 text-[#d4d4d4] hover:text-[#fc9d1b]">
+          <a aria-label="YouTube" href="#top" class="social-btn">
             <svg class="lucide lucide-youtube" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round">
@@ -693,14 +554,13 @@
           </a>
         </div>
 
-        <div class="flex items-center gap-4 text-sm">
-          <a href="#top" class="text-[#fc9d1b]">이용약관</a>
-          <span class="text-[#808080]">|</span>
-          <a href="#top" class="text-[#fc9d1b]">개인정보 처리방침</a>
+        <div class="footer-links">
+          <a href="#top" class="highlight-link">이용약관</a>
+          <span class="divider">|</span>
+          <a href="#top" class="highlight-link">개인정보 처리방침</a>
         </div>
 
-        <button id="family-site-btn"
-          class="flex min-w-40 items-center justify-between border-b border-[#808080] px-1 py-2 text-sm text-[#d4d4d4] hover:border-[#fc9d1b] hover:text-[#fc9d1b]">
+        <button id="family-site-btn" class="family-btn">
           패밀리 사이트
           <svg class="lucide lucide-chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
