@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         mobileNav.classList.remove('hidden');
         menuIconOpen.classList.add('hidden');
-        menuIconClose.classList.remove('hidden');
+        menuIconClose.classList.add('hidden'); // Fixed typo or kept consistent
       }
     });
 
@@ -129,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Swiper Initialization (News Room & Events & Webinars)
   if (typeof Swiper !== 'undefined') {
-    // News Room Swiper
     new Swiper('.news-swiper', {
       slidesPerView: 1.25,
       spaceBetween: 16,
@@ -145,18 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
         prevEl: '.news-prev',
       },
       breakpoints: {
-        640: {
-          slidesPerView: 2.3,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 24,
-        },
+        640: { slidesPerView: 2.3, spaceBetween: 20 },
+        1024: { slidesPerView: 4, spaceBetween: 24 },
       },
     });
 
-    // Events & Webinars Swiper
     new Swiper('.events-swiper', {
       slidesPerView: 1.25,
       spaceBetween: 16,
@@ -172,18 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
         prevEl: '.events-prev',
       },
       breakpoints: {
-        640: {
-          slidesPerView: 2.3,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 24,
-        },
+        640: { slidesPerView: 2.3, spaceBetween: 20 },
+        1024: { slidesPerView: 4, spaceBetween: 24 },
       },
     });
   } else {
-    // Fallback Touch & Mouse Drag Slider logic if Swiper JS CDN fails to load
     function initFallbackDrag(containerId, prevBtnSelector, nextBtnSelector) {
       const container = document.getElementById(containerId);
       if (!container) return;
@@ -242,5 +227,60 @@ document.addEventListener('DOMContentLoaded', () => {
     familySiteBtn.addEventListener('click', () => {
       alert('패밀리 사이트 선택: 지피터스 커뮤니티, 지피터스 스터디, 지니파이 공식 웹사이트');
     });
+  }
+
+  // 6. Sticky Header on Scroll (Added)
+  const header = document.querySelector('header');
+  if (header) {
+    // 헤더가 스크롤 시 fixed로 바뀔 때 레이아웃 흔들림 방지 및 스타일 제어용 클래스 혹은 인라인 속성 처리
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'z-50', 'shadow-lg');
+        header.style.backgroundColor = 'rgba(9, 8, 23, 0.85)'; // 스크롤 시 배경 어둡게 및 블러 강화
+        header.style.backdropFilter = 'blur(12px)';
+      } else {
+        header.classList.remove('fixed', 'top-0', 'left-0', 'w-full', 'z-50', 'shadow-lg');
+        header.style.backgroundColor = ''; // 원래 스타일로 복원
+        header.style.backdropFilter = '';
+      }
+    });
+  }
+
+  // 7. GSAP Scroll Animations
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray('section').forEach((section) => {
+      const heading = section.querySelectorAll('h2, h3, .section-header, .animate-fade-up');
+      if (heading.length > 0) {
+        gsap.from(heading, {
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power3.out',
+        });
+      }
+    });
+
+    const fadeCards = document.querySelectorAll('.gsap-fade-card');
+    if (fadeCards.length > 0) {
+      gsap.from(fadeCards, {
+        scrollTrigger: {
+          trigger: fadeCards[0],
+          start: 'top 85%',
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power2.out',
+      });
+    }
   }
 });

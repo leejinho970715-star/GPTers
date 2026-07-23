@@ -118,7 +118,7 @@ html {
 /* Header / Navigation */
 .header {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 30;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
