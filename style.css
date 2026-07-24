@@ -881,14 +881,26 @@ html {
   margin: 0 auto;
 }
 
+/* Swiper 컨테이너 설정 수정 (overflow 속성을 Swiper 내부에 맞게 조정) */
 .events-swiper {
-  overflow: hidden;
+  width: 100%;
   margin-top: 40px;
   cursor: grab;
+  overflow: hidden;
+  /* 스와이퍼 영역 밖 삐져나감 방지 */
 }
 
 .events-swiper:active {
   cursor: grabbing;
+}
+
+/* 스와이프 내 슬라이드 크기 및 레이아웃 강제 정렬 */
+.events-swiper .swiper-slide {
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  /* Swiper breakpoints에 맞춰 자동 계산되도록 설정 */
 }
 
 @media (min-width: 768px) {
