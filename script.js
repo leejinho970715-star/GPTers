@@ -12,10 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.classList.add('hidden');
         menuIconOpen.classList.remove('hidden');
         menuIconClose.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
       } else {
         mobileNav.classList.remove('hidden');
         menuIconOpen.classList.add('hidden');
-        menuIconClose.classList.add('hidden');
+        menuIconClose.classList.remove('hidden');
+        menuBtn.setAttribute('aria-expanded', 'true');
       }
     });
 
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNav.classList.add('hidden');
         menuIconOpen.classList.remove('hidden');
         menuIconClose.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
       });
     });
   }

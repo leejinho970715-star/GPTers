@@ -222,6 +222,10 @@ html {
   color: #fff;
 }
 
+.mobile-nav:not(.hidden) {
+  display: flex;
+}
+
 .mobile-nav a {
   text-decoration: none;
   color: #fff;
