@@ -612,10 +612,10 @@ html {
 }
 
 .stats-intro {
-  max-width: 672px;
-  font-size: clamp(1.45rem, 2vw, 2.05rem);
+  max-width: 1400px;
+  font-size: clamp(1.8rem, 4.2vw, 5rem);
   font-weight: 500;
-  line-height: 1.58;
+  line-height: 1.25;
   letter-spacing: -0.045em;
   color: rgba(255, 255, 255, 0.95);
 }
@@ -631,7 +631,7 @@ html {
   .stats-panels {
     margin-top: 96px;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 24px;
   }
 }
@@ -658,6 +658,9 @@ html {
 }
 
 .stat-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-color: rgba(255, 255, 255, 0.15);
   padding: 20px 24px;
 }
