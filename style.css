@@ -18,11 +18,22 @@
   padding: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
   font-family: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
   color: var(--text-main);
   background-color: #fafafa;
+}
+
+img,
+video {
+  max-width: 100%;
 }
 
 ::selection {
@@ -145,6 +156,17 @@ html {
 
 .logo img {
   display: block;
+  width: 120px;
+  height: 32px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (min-width: 768px) {
+  .logo img {
+    width: 150px;
+    height: 40px;
+  }
 }
 
 .desktop-nav {
@@ -495,32 +517,75 @@ html {
   }
 }
 
-.view-all-btn {
+/* Unified CTA pill button — used by "전체보기", "자세히보기", 뉴스레터/문의 buttons */
+.btn-pill {
   display: inline-flex;
   align-items: center;
-  gap: 40px;
+  justify-content: center;
+  gap: 24px;
   border-radius: 9999px;
   border: 1px solid #d4d4d4;
   background-color: #fff;
   padding: 12px 12px 12px 20px;
-  font-size: 1rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #0a0a0a;
   text-decoration: none;
-  color: inherit;
-  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
 }
 
-.view-all-btn:hover {
+.btn-pill:hover {
   border-color: #fc9d1b;
   color: #fc9d1b;
 }
 
-.arrow-circle {
+.btn-pill-icon {
   display: grid;
+  flex-shrink: 0;
   height: 28px;
   width: 28px;
   place-items: center;
   border-radius: 9999px;
   background-color: #f4f4f4;
+  color: inherit;
+  transition: background-color 0.2s;
+}
+
+.btn-pill:hover .btn-pill-icon {
+  background-color: #fff4e8;
+}
+
+/* Outline variant for use on dark / photo backgrounds */
+.btn-pill--outline {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-pill--outline .btn-pill-icon {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.btn-pill--outline:hover {
+  border-color: #fc9d1b;
+  color: #fc9d1b;
+}
+
+.btn-pill--outline:hover .btn-pill-icon {
+  background-color: rgba(252, 157, 27, 0.15);
+}
+
+/* Compact variant for tight header rows */
+.btn-pill--sm {
+  gap: 10px;
+  padding: 8px 8px 8px 16px;
+  font-size: 0.8125rem;
+}
+
+.btn-pill--sm .btn-pill-icon {
+  height: 22px;
+  width: 22px;
 }
 
 .popular-list {
@@ -613,7 +678,7 @@ html {
 
 .stats-intro {
   max-width: 1400px;
-  font-size: clamp(1.8rem, 4.2vw, 5rem);
+  font-size: clamp(2.3rem, 4.3vw, 4.1rem);
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.045em;
@@ -639,7 +704,7 @@ html {
 .stats-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   overflow: hidden;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -662,15 +727,17 @@ html {
   flex-direction: column;
   justify-content: center;
   border-color: rgba(255, 255, 255, 0.15);
-  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px 0;
 }
 
-.stat-item:nth-child(odd) {
-  padding-left: 0;
+.stat-item:last-child {
+  border-bottom: none;
 }
 
 @media (min-width: 768px) {
   .stat-item {
+    border-bottom: none;
     border-right: 1px solid rgba(255, 255, 255, 0.15);
     padding: 12px 40px;
   }
@@ -708,22 +775,15 @@ html {
 }
 
 .stat-highlight .stat-value {
-  font-size: clamp(3rem, 5.5vw, 6rem);
+  margin-top: 0;
 }
 
 .stat-highlight .stat-label {
-  font-size: 1.05rem;
-  font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
 }
 
-@media (min-width: 768px) {
-  .stat-highlight .stat-label {
-    font-size: 1.35rem;
-  }
-}
-
 .stat-value {
+  margin-top: 12px;
   font-size: clamp(2.35rem, 3.65vw, 4rem);
   font-weight: bold;
   line-height: 1;
@@ -732,7 +792,6 @@ html {
 }
 
 .stat-label {
-  margin-top: 12px;
   font-size: 0.875rem;
   color: #a3a3b1;
 }
@@ -773,8 +832,10 @@ html {
 .news-header {
   margin-bottom: 36px;
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .swiper-controls-group {
@@ -793,7 +854,7 @@ html {
   border-radius: 9999px;
   border: 1px solid #d1d5db;
   background: transparent;
-  padding: 8px;
+  padding: 11px;
   cursor: pointer;
   color: #374151;
   transition: border-color 0.2s, color 0.2s;
@@ -806,21 +867,11 @@ html {
 
 .news-view-all {
   display: none;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.875rem;
-  color: #808080;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.news-view-all:hover {
-  color: #fc9d1b;
 }
 
 @media (min-width: 640px) {
   .news-view-all {
-    display: flex;
+    display: inline-flex;
   }
 }
 
@@ -941,9 +992,9 @@ html {
 
 .events-bg-icon {
   position: absolute;
-  top: -20px;
-  left: 0;
-  width: clamp(160px, 24vw, 340px);
+  top: -40px;
+  left: -20px;
+  width: clamp(220px, 34vw, 480px);
   height: auto;
   z-index: -1;
   pointer-events: none;
@@ -951,7 +1002,8 @@ html {
 
 @media (min-width: 768px) {
   .events-bg-icon {
-    top: -60px;
+    top: -80px;
+    left: -40px;
   }
 }
 
@@ -988,7 +1040,7 @@ html {
   aspect-ratio: 1.35;
   width: 100%;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: #000;
 }
 
@@ -996,7 +1048,7 @@ html {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  opacity: 0.75;
+  opacity: 0.85;
   transition: transform 0.5s;
 }
 
@@ -1006,10 +1058,14 @@ html {
 
 .event-info {
   position: absolute;
-  inset-x: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  padding: 96px 20px 20px 20px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 90px 20px 20px 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88), transparent);
 }
 
 .event-tag {
@@ -1019,7 +1075,7 @@ html {
 }
 
 .event-title {
-  margin-top: 8px;
+  margin-top: -6px;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: -0.035em;
@@ -1027,22 +1083,31 @@ html {
 }
 
 .event-date {
-  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
   font-size: 0.75rem;
-  line-height: 20px;
   color: rgba(255, 255, 255, 0.75);
 }
 
-.event-more {
-  margin-top: 16px;
+.event-date-item {
   display: inline-flex;
   align-items: center;
-  font-size: 0.875rem;
-  color: #fc9d1b;
+  gap: 6px;
 }
 
-.event-more svg {
-  margin-left: 8px;
+.event-date-item svg {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.event-date-sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.event-more-btn {
+  align-self: flex-start;
 }
 
 .events-watermark {
@@ -1184,22 +1249,7 @@ html {
 
 .feature-btn {
   margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 32px;
-  border-radius: 9999px;
-  border: 1px solid #d4d4d4;
-  background: transparent;
-  padding: 12px 20px;
-  font-size: 0.875rem;
-  color: #d4d4d4;
-  cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-}
-
-.feature-btn:hover {
-  border-color: #fc9d1b;
-  color: #fc9d1b;
+  align-self: flex-start;
 }
 
 /* Section 8: Footer */
@@ -1262,8 +1312,11 @@ html {
 }
 
 .social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
-  padding: 4px;
+  padding: 8px;
   color: #d4d4d4;
   text-decoration: none;
   transition: color 0.2s;

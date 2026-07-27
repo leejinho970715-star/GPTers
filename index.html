@@ -26,7 +26,7 @@
     <div class="header-container">
       <!-- Logo -->
       <a href="#top" class="logo">
-        <img src="./assets/white-logo.png" alt="지피터스 로고">
+        <img src="assets/logo.png" alt="지피터스 로고">
       </a>
 
       <!-- Desktop Nav Links -->
@@ -169,9 +169,9 @@
           </p>
         </div>
 
-        <a href="#news" class="view-all-btn">
+        <a href="#news" class="btn-pill">
           전체보기
-          <span class="arrow-circle">
+          <span class="btn-pill-icon">
             <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -226,22 +226,22 @@
       <div class="stats-panels">
         <div class="stats-grid">
           <div class="stat-item">
-            <p class="stat-value" data-stat-value="15000" data-stat-suffix="+">0+</p>
-            <p class="stat-label">커뮤니티 멤버</p>
+            <p class="stat-label">월간 방문자수</p>
+            <p class="stat-value" data-stat-value="1500" data-stat-suffix="+">0+</p>
           </div>
           <div class="stat-item">
+            <p class="stat-label">누적 포스팅수</p>
             <p class="stat-value" data-stat-value="10000" data-stat-suffix="+">0+</p>
-            <p class="stat-label">누적 콘텐츠</p>
           </div>
           <div class="stat-item">
+            <p class="stat-label">스터디 수료자</p>
             <p class="stat-value" data-stat-value="6500" data-stat-suffix="+">0+</p>
-            <p class="stat-label">AI 실무 사례</p>
           </div>
         </div>
 
         <div class="stat-highlight">
-          <p class="stat-value" data-stat-value="2000" data-stat-decimal="true">0</p>
-          <p class="stat-label">지피터스 시작</p>
+          <p class="stat-label">Since</p>
+          <p class="stat-value">2023</p>
         </div>
       </div>
 
@@ -277,13 +277,16 @@
               </svg>
             </button>
           </div>
-          <a href="#contact" class="news-view-all">
+          <a href="#contact" class="btn-pill btn-pill--sm news-view-all">
             전체보기
-            <svg class="lucide lucide-chevron-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <span class="btn-pill-icon">
+              <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
           </a>
         </div>
       </div>
@@ -352,9 +355,9 @@
     </video>
     <div class="banner-overlay"></div>
     <div class="banner-content">
-      <p>최신 AI 소식의 허브</p>
-      <p>국내 최대 AI 커뮤니티 지피터스에서</p>
-      <p class="highlight">다양한 AI 실무 활용 사례를 만나보세요.</p>
+      <p class="animate-fade-up">최신 AI 소식의 허브</p>
+      <p class="animate-fade-up">국내 최대 AI 커뮤니티 지피터스에서</p>
+      <p class="highlight animate-fade-up">다양한 AI 실무 활용 사례를 만나보세요.</p>
     </div>
   </section>
 
@@ -397,18 +400,39 @@
                 <p class="event-tag">[AI 스터디 23기]</p>
                 <p class="event-title">온라인 설명회</p>
                 <p class="event-date">
-                  시작 일시 : 2026.07.13. 오후 9:00<br>
-                  종료 일시 : 2026.07.13. 오후 10:00
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    시작 일시 : 2026.07.13. 오후 9:00
+                  </span>
+                  <span class="event-date-sep">|</span>
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    종료 일시 : 2026.07.13. 오후 10:00
+                  </span>
                 </p>
-                <span class="event-more">
+                <a href="#" class="btn-pill btn-pill--outline btn-pill--sm event-more-btn">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </span>
+                  <span class="btn-pill-icon">
+                    <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </article>
           </div>
@@ -420,18 +444,39 @@
                 <p class="event-tag">[중급]</p>
                 <p class="event-title">AI 좀 써봤는데, 다음 단계는 뭘까요?</p>
                 <p class="event-date">
-                  시작 일시 : 2026.07.13. 오후 9:00<br>
-                  종료 일시 : 2026.07.13. 오후 10:00
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    시작 일시 : 2026.07.13. 오후 9:00
+                  </span>
+                  <span class="event-date-sep">|</span>
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    종료 일시 : 2026.07.13. 오후 10:00
+                  </span>
                 </p>
-                <span class="event-more">
+                <a href="#" class="btn-pill btn-pill--outline btn-pill--sm event-more-btn">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </span>
+                  <span class="btn-pill-icon">
+                    <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </article>
           </div>
@@ -443,18 +488,39 @@
                 <p class="event-tag">[고급]</p>
                 <p class="event-title">이제, 나만의 AI 시스템을 만들 차례</p>
                 <p class="event-date">
-                  시작 일시 : 2026.07.09. 오후 9:00<br>
-                  종료 일시 : 2026.07.09. 오후 11:00
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    시작 일시 : 2026.07.09. 오후 9:00
+                  </span>
+                  <span class="event-date-sep">|</span>
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    종료 일시 : 2026.07.09. 오후 11:00
+                  </span>
                 </p>
-                <span class="event-more">
+                <a href="#" class="btn-pill btn-pill--outline btn-pill--sm event-more-btn">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </span>
+                  <span class="btn-pill-icon">
+                    <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </article>
           </div>
@@ -466,18 +532,39 @@
                 <p class="event-tag">[고급]</p>
                 <p class="event-title">이제, 나만의 AI 시스템을 만들 차례</p>
                 <p class="event-date">
-                  시작 일시 : 2026.07.09. 오후 9:00<br>
-                  종료 일시 : 2026.07.09. 오후 11:00
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    시작 일시 : 2026.07.09. 오후 9:00
+                  </span>
+                  <span class="event-date-sep">|</span>
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    종료 일시 : 2026.07.09. 오후 11:00
+                  </span>
                 </p>
-                <span class="event-more">
+                <a href="#" class="btn-pill btn-pill--outline btn-pill--sm event-more-btn">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </span>
+                  <span class="btn-pill-icon">
+                    <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </article>
           </div>
@@ -489,18 +576,39 @@
                 <p class="event-tag">[고급]</p>
                 <p class="event-title">이제, 나만의 AI 시스템을 만들 차례</p>
                 <p class="event-date">
-                  시작 일시 : 2026.07.09. 오후 9:00<br>
-                  종료 일시 : 2026.07.09. 오후 11:00
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    시작 일시 : 2026.07.09. 오후 9:00
+                  </span>
+                  <span class="event-date-sep">|</span>
+                  <span class="event-date-item">
+                    <svg class="lucide lucide-timer" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <line x1="10" x2="14" y1="2" y2="2" />
+                      <line x1="12" x2="15" y1="14" y2="11" />
+                      <circle cx="12" cy="14" r="8" />
+                    </svg>
+                    종료 일시 : 2026.07.09. 오후 11:00
+                  </span>
                 </p>
-                <span class="event-more">
+                <a href="#" class="btn-pill btn-pill--outline btn-pill--sm event-more-btn">
                   자세히보기
-                  <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </span>
+                  <span class="btn-pill-icon">
+                    <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </article>
           </div>
@@ -536,14 +644,16 @@
             <p class="feature-desc">
               지피터스 뉴스레터는 모두가 AI 발전 속도에 뒤처지지 않도록 꼭 필요한 주간 뉴스와 커뮤니티의 가장 흥미로운 AI 활용법을 전해드립니다.
             </p>
-            <button class="feature-btn">
+            <button class="btn-pill btn-pill--outline feature-btn">
               뉴스레터 구독하기
-              <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+              <span class="btn-pill-icon">
+                <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
             </button>
           </div>
         </article>
@@ -560,14 +670,16 @@
             <p class="feature-desc">
               우리 팀의 AI 역량을 높이고 싶으신가요? 기업 맞춤 교육부터 워크숍, 컨설팅까지 지피터스가 함께합니다.
             </p>
-            <button class="feature-btn">
+            <button class="btn-pill btn-pill--outline feature-btn">
               기업교육 문의하기
-              <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+              <span class="btn-pill-icon">
+                <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
             </button>
           </div>
         </article>
@@ -579,7 +691,7 @@
   <footer class="footer">
     <div class="footer-container">
       <div>
-        <img src="assets/footer-logo.png" alt="GPTERS 로고" class="footer-logo">
+        <img src="assets/logo.png" alt="GPTERS 로고" class="footer-logo">
         <div class="footer-info">
           <p>지니파이 주식회사 / 대표: 김태현</p>
           <p>주소: 서울특별시 강남구 역삼로 165, 해성빌딩 701호 지니파이(주)</p>
