@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="지피터스 AI 커뮤니티에서 다양한 분야의 실무 사례 포스트들을 만나보세요.">
+  <meta property="og:title" content="게시판 - 지피터스">
+  <meta property="og:description" content="지피터스 AI 커뮤니티에서 다양한 분야의 실무 사례 포스트들을 만나보세요.">
+  <meta property="og:type" content="website">
+  <title>게시판 - 지피터스</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP 및 ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="index.html#top" class="logo">
+        <img src="assets/logo.png" alt="지피터스 로고">
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav">
+        <a href="board.html" class="active">AI커뮤니티</a>
+        <a href="index.html#events-section">AI스터디</a>
+        <a href="index.html#popular">AI챌린지</a>
+        <a href="index.html#contact">기업교육</a>
+      </nav>
+
+      <!-- Desktop Utility Buttons -->
+      <div class="desktop-utils">
+        <button aria-label="메시지" class="util-btn">
+          <svg class="lucide lucide-message-circle" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+          </svg>
+        </button>
+        <button aria-label="글쓰기" class="util-btn">
+          <svg class="lucide lucide-file-pen-line" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
+            <path
+              d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+            <path d="M8 18h1" />
+          </svg>
+        </button>
+        <button aria-label="마이페이지" class="util-btn">
+          <svg class="lucide lucide-circle-user-round" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M18 20a6 6 0 0 0-12 0" />
+            <circle cx="12" cy="10" r="4" />
+            <circle cx="12" cy="12" r="10" />
+          </svg>
+        </button>
+        <button aria-label="로그아웃" class="util-btn">
+          <svg class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" x2="9" y1="12" y2="12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" aria-label="메뉴 열기" class="mobile-menu-btn">
+        <svg id="menu-icon-open" class="lucide lucide-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+        <svg id="menu-icon-close" class="lucide lucide-x hidden" xmlns="http://www.w3.org/2000/svg" width="24"
+          height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <nav id="mobile-nav" class="mobile-nav hidden">
+      <a href="board.html" class="active">AI커뮤니티</a>
+      <a href="index.html#events-section">AI스터디</a>
+      <a href="index.html#popular">AI챌린지</a>
+      <a href="index.html#contact">기업교육</a>
+    </nav>
+  </header>
+
+  <!-- Section 1: Hero / Search Section -->
+  <section id="top" class="hero-section">
+    <video autoplay loop muted playsinline preload="auto" class="hero-video" aria-label="AI 실무 적용 사례 검색 메인 배경 영상">
+      <source src="assets/visual_video_1.6407b2d8.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-card">
+      <h1 class="hero-title">
+        분야별로 원하는 <span class="highlight">AI 실무 적용 사례 정보</span>를 빠르게 찾아보세요
+      </h1>
+
+      <div class="search-box-wrapper">
+        <div class="search-flex">
+          <input id="search-input" aria-label="AI 사례 검색" type="text" placeholder="검색어를 입력해주세요" class="search-input">
+          <button id="search-btn" aria-label="검색" class="search-submit-btn">
+            <svg class="lucide lucide-search" xmlns="http://www.w3.org/2000/svg" width="34" height="34"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="tags-container">
+        <span class="tags-label">추천 검색어</span>
+        <div class="tags-list">
+          <button class="tag-btn">#MCP활용</button>
+          <button class="tag-btn">#코딩/개발</button>
+          <button class="tag-btn">#이미지/사진</button>
+          <button class="tag-btn">#글쓰기/자소서</button>
+          <button class="tag-btn">#에이전트/자동화</button>
+          <button class="tag-btn">#마케팅/콘텐츠</button>
+          <button class="tag-btn">#연구/교육</button>
+          <button class="tag-btn">#대본/스피치</button>
+          <button class="tag-btn">#의료/바이오</button>
+          <button class="tag-btn">#비즈니스/제테크</button>
+          <button class="tag-btn">#영상/애니메이션</button>
+          <button class="tag-btn">#UX/UI 디자인</button>
+          <button class="tag-btn">#데이터 수집/분석</button>
+          <button class="tag-btn">#음악/보이스</button>
+        </div>
+      </div>
+
+      <p id="search-feedback" aria-live="polite" class="search-feedback hidden"></p>
+    </div>
+  </section>
+
+  <!-- Section 2: Post List Section -->
+  <section class="post-section">
+    <div class="post-section-container">
+      <nav class="local-nav" aria-label="현재 위치">
+        <a href="index.html#top">Home</a>
+        <svg class="lucide lucide-chevron-right local-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="18"
+          height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        <a href="board.html">AI커뮤니티</a>
+        <svg class="lucide lucide-chevron-right local-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="18"
+          height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        <span class="local-nav-current">Post</span>
+      </nav>
+
+      <div class="page-section-header">
+        <h2 class="section-heading animate-fade-up">
+          지피터스 AI 커뮤니티에서<br>
+          다양한 분야의 실무 사례 포스트들을 만나보세요
+        </h2>
+        <p class="view-count">총 1,273개 조회됨</p>
+      </div>
+
+      <ul class="post-list">
+        <li class="post-card gsap-fade-card">
+          <div class="post-thumb">
+            <img src="assets/board_thum_1.png" alt="내 데이터로 투자 전략을 검증하는 시스템, K-Flow">
+          </div>
+          <div class="post-body">
+            <p class="post-tag">#비즈니스/제테크</p>
+            <h3 class="post-title">내 데이터로 투자 전략을 검증하는 시스템, K-Flow</h3>
+            <p class="post-desc">K-Flow는 국내 주식시장의 가격과 투자자별 수급 데이터를 직접 축적하고, 이를 바탕으로 퀀트 전략을 발굴·검증하는 개인 리서치 플랫폼입니다...</p>
+            <div class="post-meta">
+              <span class="post-meta-item">작성자 : OOO</span>
+              <span class="post-meta-sep"></span>
+              <span class="post-meta-item">2026.00.00</span>
+              <span class="post-meta-sep"></span>
+              <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+                <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+                100
+              </button>
+              <span class="post-meta-item post-meta-icon">
+                <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                100
+              </span>
+            </div>
+            <a href="#" class="btn-pill btn-pill--sm post-more-btn">
+              자세히보기
+              <span class="btn-pill-icon">
+                <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <li class="post-card gsap-fade-card">
+          <div class="post-thumb">
+            <img src="assets/board_thum_2.png" alt="학습지 생성기 개발: V2 실패 분석 및 V3 계획">
+          </div>
+          <div class="post-body">
+            <p class="post-tag">#연구/교육</p>
+            <h3 class="post-title">학습지 생성기 개발: V2 실패 분석 및 V3 계획</h3>
+            <p class="post-desc">학습지를 자동으로 생성해 주는 도구를 만들고 싶었습니다. 나 혼자 내 컴퓨터에서만 사용하는 개인용 툴로, 배포나 다중 사용자를 고려하지 않고...</p>
+            <div class="post-meta">
+              <span class="post-meta-item">작성자 : OOO</span>
+              <span class="post-meta-sep"></span>
+              <span class="post-meta-item">2026.00.00</span>
+              <span class="post-meta-sep"></span>
+              <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+                <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+                100
+              </button>
+              <span class="post-meta-item post-meta-icon">
+                <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                100
+              </span>
+            </div>
+            <a href="#" class="btn-pill btn-pill--sm post-more-btn">
+              자세히보기
+              <span class="btn-pill-icon">
+                <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <li class="post-card gsap-fade-card">
+          <div class="post-thumb">
+            <img src="assets/board_thum_3.png" alt="매주 수 시간 걸리던 검수 업무, 루프 엔지니어링으로 자동 채점 루프 만들기">
+          </div>
+          <div class="post-body">
+            <p class="post-tag">#코딩/개발</p>
+            <h3 class="post-title">매주 수 시간 걸리던 검수 업무, 루프 엔지니어링으로 자동 채점 루프 만들기</h3>
+            <p class="post-desc">로나(rona-alpha)의 추천 스킬 "반복 업무를 검증 가능한 루프로 만들기"를 발급받아 클로드 코드에서 진행했어요...</p>
+            <div class="post-meta">
+              <span class="post-meta-item">작성자 : OOO</span>
+              <span class="post-meta-sep"></span>
+              <span class="post-meta-item">2026.00.00</span>
+              <span class="post-meta-sep"></span>
+              <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+                <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+                100
+              </button>
+              <span class="post-meta-item post-meta-icon">
+                <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                100
+              </span>
+            </div>
+            <a href="#" class="btn-pill btn-pill--sm post-more-btn">
+              자세히보기
+              <span class="btn-pill-icon">
+                <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <li class="post-card gsap-fade-card">
+          <div class="post-thumb">
+            <img src="assets/board_thum_4.png" alt="클로드코드와 rona스킬을 활용한 직원 슈퍼비전 기록 자동화 만들기">
+          </div>
+          <div class="post-body">
+            <p class="post-tag">#에이전트/자동화</p>
+            <h3 class="post-title">클로드코드와 rona스킬을 활용한 직원 슈퍼비전 기록 자동화 만들기</h3>
+            <p class="post-desc">독서를 통한 인사이트 기록 툴 자동화 생성, 하루 일과 우선순위 및 업무수행도 자동화 생성, 사회복지 주간 동향 인사이트 기록 등 자기 성장을...</p>
+            <div class="post-meta">
+              <span class="post-meta-item">작성자 : OOO</span>
+              <span class="post-meta-sep"></span>
+              <span class="post-meta-item">2026.00.00</span>
+              <span class="post-meta-sep"></span>
+              <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+                <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+                100
+              </button>
+              <span class="post-meta-item post-meta-icon">
+                <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                100
+              </span>
+            </div>
+            <a href="#" class="btn-pill btn-pill--sm post-more-btn">
+              자세히보기
+              <span class="btn-pill-icon">
+                <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </li>
+
+        <li class="post-card gsap-fade-card">
+          <div class="post-thumb">
+            <img src="assets/board_thum_5.png" alt="내가 쓴 논문 리뷰하는 위키 만들기 실험">
+          </div>
+          <div class="post-body">
+            <p class="post-tag">#글쓰기/자소서</p>
+            <h3 class="post-title">내가 쓴 논문 리뷰하는 위키 만들기 실험</h3>
+            <p class="post-desc">AI에게 논문을 읽히면 지적은 많이 받을 수 있다. 문장이 어색하다, 초록이 과장됐다, 방법 설명이 부족하다, 한계가 약하다 같은 말은 금방 나온다...</p>
+            <div class="post-meta">
+              <span class="post-meta-item">작성자 : OOO</span>
+              <span class="post-meta-sep"></span>
+              <span class="post-meta-item">2026.00.00</span>
+              <span class="post-meta-sep"></span>
+              <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+                <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+                100
+              </button>
+              <span class="post-meta-item post-meta-icon">
+                <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                100
+              </span>
+            </div>
+            <a href="#" class="btn-pill btn-pill--sm post-more-btn">
+              자세히보기
+              <span class="btn-pill-icon">
+                <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </li>
+      </ul>
+
+      <a href="#" class="write-btn">글쓰기</a>
+
+      <nav class="pagination" aria-label="페이지 이동">
+        <button class="pagination-arrow" aria-label="이전 페이지">
+          <svg class="lucide lucide-chevron-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+        <a href="#" class="pagination-item is-active">1</a>
+        <a href="#" class="pagination-item">2</a>
+        <a href="#" class="pagination-item">3</a>
+        <a href="#" class="pagination-item">4</a>
+        <a href="#" class="pagination-item">5</a>
+        <a href="#" class="pagination-item">6</a>
+        <a href="#" class="pagination-item">7</a>
+        <a href="#" class="pagination-item">8</a>
+        <a href="#" class="pagination-item">9</a>
+        <button class="pagination-arrow" aria-label="다음 페이지">
+          <svg class="lucide lucide-chevron-right" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Section 3: Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <img src="assets/logo.png" alt="GPTERS 로고" class="footer-logo">
+        <div class="footer-info">
+          <p>지니파이 주식회사 / 대표: 김태현</p>
+          <p>주소: 서울특별시 강남구 역삼로 165, 해성빌딩 701호 지니파이(주)</p>
+          <p>사업자등록번호: 514-86-02743</p>
+          <p>대표번호: 02-887-6749</p>
+          <p>통신판매업 신고번호: 제 2024-서울강남-04286</p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="social-links">
+          <a aria-label="Instagram" href="index.html#top" class="social-btn">
+            <svg class="lucide lucide-instagram" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+          </a>
+          <a aria-label="YouTube" href="index.html#top" class="social-btn">
+            <svg class="lucide lucide-youtube" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+              <path d="m10 15 5-3-5-3z" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <a href="index.html#top" class="highlight-link">이용약관</a>
+          <span class="divider">|</span>
+          <a href="index.html#top" class="highlight-link">개인정보 처리방침</a>
+        </div>
+
+        <button id="family-site-btn" class="family-btn">
+          패밀리 사이트
+          <svg class="lucide lucide-chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="지피터스 에디터가 직접 업로드하는 AI 관련 실시간 최신 뉴스를 만나보세요.">
+  <meta property="og:title" content="뉴스룸 - 지피터스">
+  <meta property="og:description" content="지피터스 에디터가 직접 업로드하는 AI 관련 실시간 최신 뉴스를 만나보세요.">
+  <meta property="og:type" content="website">
+  <title>뉴스룸 - 지피터스</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP 및 ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="index.html#top" class="logo">
+        <img src="assets/logo.png" alt="지피터스 로고">
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav">
+        <a href="board.html" class="active">AI커뮤니티</a>
+        <a href="index.html#events-section">AI스터디</a>
+        <a href="index.html#popular">AI챌린지</a>
+        <a href="index.html#contact">기업교육</a>
+      </nav>
+
+      <!-- Desktop Utility Buttons -->
+      <div class="desktop-utils">
+        <button aria-label="메시지" class="util-btn">
+          <svg class="lucide lucide-message-circle" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+          </svg>
+        </button>
+        <button aria-label="글쓰기" class="util-btn">
+          <svg class="lucide lucide-file-pen-line" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m18 5-2.414-2.414A2 2 0 0 0 14.172 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" />
+            <path
+              d="M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+            <path d="M8 18h1" />
+          </svg>
+        </button>
+        <button aria-label="마이페이지" class="util-btn">
+          <svg class="lucide lucide-circle-user-round" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M18 20a6 6 0 0 0-12 0" />
+            <circle cx="12" cy="10" r="4" />
+            <circle cx="12" cy="12" r="10" />
+          </svg>
+        </button>
+        <button aria-label="로그아웃" class="util-btn">
+          <svg class="lucide lucide-log-out" xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" x2="9" y1="12" y2="12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" aria-label="메뉴 열기" class="mobile-menu-btn">
+        <svg id="menu-icon-open" class="lucide lucide-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+        <svg id="menu-icon-close" class="lucide lucide-x hidden" xmlns="http://www.w3.org/2000/svg" width="24"
+          height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <nav id="mobile-nav" class="mobile-nav hidden">
+      <a href="board.html" class="active">AI커뮤니티</a>
+      <a href="index.html#events-section">AI스터디</a>
+      <a href="index.html#popular">AI챌린지</a>
+      <a href="index.html#contact">기업교육</a>
+    </nav>
+  </header>
+
+  <!-- Section 1: Hero Banner -->
+  <section class="banner-section">
+    <video autoplay loop muted playsinline preload="auto" class="hero-video" aria-label="최신 AI 소식의 허브 배경 영상">
+      <source src="assets/main_visual_video.8e52b77f.mp4" type="video/mp4">
+    </video>
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <p class="animate-fade-up">AI 최신 소식의 허브</p>
+      <p class="animate-fade-up">국내 최대 AI 커뮤니티 지피터스에서</p>
+      <p class="highlight animate-fade-up">다양한 AI 실무 활용 사례를 만나보세요.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: News List Section -->
+  <section class="post-section">
+    <div class="post-section-container">
+      <nav class="local-nav" aria-label="현재 위치">
+        <a href="index.html#top">Home</a>
+        <svg class="lucide lucide-chevron-right local-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="18"
+          height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        <a href="board.html">AI커뮤니티</a>
+        <svg class="lucide lucide-chevron-right local-nav-arrow" xmlns="http://www.w3.org/2000/svg" width="18"
+          height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+        <span class="local-nav-current">뉴스룸</span>
+      </nav>
+
+      <div class="page-section-header">
+        <h2 class="section-heading animate-fade-up">
+          지피터스 에디터가 직접 업로드하는<br>
+          AI 관련 실시간 최신 뉴스를 만나보세요
+        </h2>
+        <p class="view-count">총 1,273개 조회됨</p>
+      </div>
+
+      <ul class="newsroom-grid">
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_1.png" alt="AGI 규제 프레임워크, 왜 지금인가">
+          </div>
+          <h3 class="newsroom-title">AGI 규제 프레임워크, 왜 지금인가: 딥마인드 CEO 허사비스 에세이 핵심 정리</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_2.png" alt="ChatGPT Work 사용법">
+          </div>
+          <h3 class="newsroom-title">ChatGPT Work 사용법, 채팅이 아니라 완성된 문서를 뽑아주는 업무 에이전트</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_3.png" alt="Claude Fable 5 프롬프트 15개 완벽 정리">
+          </div>
+          <h3 class="newsroom-title">Claude Fable 5 프롬프트 15개 완벽 정리 — 인스타 창업자가 실제로 쓰는 실전 라이브러리</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_4.png" alt="검색 1위인데 왜 아무도 안 올까 — Google Zero 현상">
+          </div>
+          <h3 class="newsroom-title">검색 1위인데 왜 아무도 안 올까 — Google Zero 현상</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_5.png" alt="AI 비용 절반으로 줄이는 법: 코인베이스 AX 사례">
+          </div>
+          <h3 class="newsroom-title">AI 비용 절반으로 줄이는 법: 코인베이스 AX 사례</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_6.png" alt="OpenAI 코덱스 책임자가 말하는 AI 시대 제품 개발 10가지">
+          </div>
+          <h3 class="newsroom-title">OpenAI 코덱스 책임자가 말하는 AI 시대 제품 개발 10가지 — 이제 중요한 건 잘 만드는 게 아니라 무엇을 만들지 고르는 것</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_7.png" alt="앤트로픽이 클로드 안에서 '의식 비슷한 것'을 찾았다">
+          </div>
+          <h3 class="newsroom-title">앤트로픽이 클로드 안에서 '의식 비슷한 것'을 찾았다, J-space 연구가 AI 안전에 중요한 이유</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_8.png" alt="AI로 복잡한 물리학 문제를 풀 때 발생하는 '수식 오류' 해결 방법">
+          </div>
+          <h3 class="newsroom-title">AI로 복잡한 물리학 문제를 풀 때 발생하는 '수식 오류' 해결 방법</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+
+        <li class="newsroom-card gsap-fade-card">
+          <div class="newsroom-thumb">
+            <img src="assets/newsroom_thum_9.png" alt="캐릭터 AI 시장 총정리">
+          </div>
+          <h3 class="newsroom-title">캐릭터 AI 시장 총정리 — 하루 2시간 몰입, 상위 10%가 매출 89%, 국내외 플레이어 비교</h3>
+          <div class="post-meta">
+            <button type="button" class="post-meta-item post-meta-icon like-btn" aria-pressed="false" aria-label="좋아요">
+              <svg class="lucide lucide-heart" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+              100
+            </button>
+            <span class="post-meta-item post-meta-icon">
+              <svg class="lucide lucide-message-square" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              100
+            </span>
+            <span class="post-meta-item newsroom-date">2026.00.00</span>
+          </div>
+        </li>
+      </ul>
+
+      <nav class="pagination" aria-label="페이지 이동">
+        <button class="pagination-arrow" aria-label="이전 페이지">
+          <svg class="lucide lucide-chevron-left" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+        <a href="#" class="pagination-item is-active">1</a>
+        <a href="#" class="pagination-item">2</a>
+        <a href="#" class="pagination-item">3</a>
+        <a href="#" class="pagination-item">4</a>
+        <a href="#" class="pagination-item">5</a>
+        <a href="#" class="pagination-item">6</a>
+        <a href="#" class="pagination-item">7</a>
+        <a href="#" class="pagination-item">8</a>
+        <a href="#" class="pagination-item">9</a>
+        <button class="pagination-arrow" aria-label="다음 페이지">
+          <svg class="lucide lucide-chevron-right" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Section 3: Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div>
+        <img src="assets/logo.png" alt="GPTERS 로고" class="footer-logo">
+        <div class="footer-info">
+          <p>지니파이 주식회사 / 대표: 김태현</p>
+          <p>주소: 서울특별시 강남구 역삼로 165, 해성빌딩 701호 지니파이(주)</p>
+          <p>사업자등록번호: 514-86-02743</p>
+          <p>대표번호: 02-887-6749</p>
+          <p>통신판매업 신고번호: 제 2024-서울강남-04286</p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="social-links">
+          <a aria-label="Instagram" href="index.html#top" class="social-btn">
+            <svg class="lucide lucide-instagram" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+            </svg>
+          </a>
+          <a aria-label="YouTube" href="index.html#top" class="social-btn">
+            <svg class="lucide lucide-youtube" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+              <path d="m10 15 5-3-5-3z" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer-links">
+          <a href="index.html#top" class="highlight-link">이용약관</a>
+          <span class="divider">|</span>
+          <a href="index.html#top" class="highlight-link">개인정보 처리방침</a>
+        </div>
+
+        <button id="family-site-btn" class="family-btn">
+          패밀리 사이트
+          <svg class="lucide lucide-chevron-down" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>

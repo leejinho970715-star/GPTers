@@ -19,7 +19,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body>
+<body class="page-home">
 
   <!-- Header / Navigation -->
   <header class="header">
@@ -31,7 +31,7 @@
 
       <!-- Desktop Nav Links -->
       <nav class="desktop-nav">
-        <a href="#popular">AI커뮤니티</a>
+        <a href="board.html" target="_blank">AI커뮤니티</a>
         <a href="#events-section">AI스터디</a>
         <a href="#popular">AI챌린지</a>
         <a href="#contact">기업교육</a>
@@ -96,7 +96,7 @@
 
     <!-- Mobile Nav Dropdown -->
     <nav id="mobile-nav" class="mobile-nav hidden">
-      <a href="#popular">AI커뮤니티</a>
+      <a href="board.html" target="_blank">AI커뮤니티</a>
       <a href="#events-section">AI스터디</a>
       <a href="#popular">AI챌린지</a>
       <a href="#contact">기업교육</a>
@@ -112,11 +112,11 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-card">
-      <h1 class="hero-title">
+      <h1 class="hero-title animate-fade-up">
         분야별로 원하는 <span class="highlight">AI 실무 적용 사례 정보</span>를 빠르게 찾아보세요
       </h1>
 
-      <div class="search-box-wrapper">
+      <div class="search-box-wrapper gsap-fade-content">
         <div class="search-flex">
           <input id="search-input" aria-label="AI 사례 검색" type="text" placeholder="검색어를 입력해주세요" class="search-input">
           <button id="search-btn" aria-label="검색" class="search-submit-btn">
@@ -130,7 +130,7 @@
         </div>
       </div>
 
-      <div class="tags-container">
+      <div class="tags-container gsap-fade-content">
         <span class="tags-label">추천 검색어</span>
         <div class="tags-list">
           <button class="tag-btn">#MCP활용</button>
@@ -164,12 +164,12 @@
           <h2 class="section-heading">
             Real-time <span class="highlight">Popular Posts</span>
           </h2>
-          <p class="section-desc">
+          <p class="section-desc animate-fade-up">
             지금 가장 핫한 AI 실무 사례와 순위별 TOP 게시물을 만나보세요
           </p>
         </div>
 
-        <a href="#news" class="btn-pill">
+        <a href="board.html" target="_blank" class="btn-pill">
           전체보기
           <span class="btn-pill-icon">
             <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -183,27 +183,27 @@
       </div>
 
       <ol class="popular-list">
-        <li class="popular-item">
+        <li class="popular-item gsap-fade-card">
           <span class="rank-num">1st.</span>
           <span class="rank-text">네이버 블로그 글쓰기, 어디까지 자동화할 수 있을까?</span>
           <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="popular-item">
+        <li class="popular-item gsap-fade-card">
           <span class="rank-num">2nd.</span>
           <span class="rank-text">가족 튜터 에이전트에서 블로그 자동화, 랜딩페이지 생성까지</span>
           <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="popular-item">
+        <li class="popular-item gsap-fade-card">
           <span class="rank-num">3rd.</span>
           <span class="rank-text">비개발자가 AI와 일주일 만에 '연구 자동화 서비스'를 만든 전 과정</span>
           <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="popular-item">
+        <li class="popular-item gsap-fade-card">
           <span class="rank-num">4th.</span>
           <span class="rank-text">Sovereign Quant — 자율 투자 인텔리전스 시스템</span>
           <time class="rank-time">2026.00.00</time>
         </li>
-        <li class="popular-item">
+        <li class="popular-item gsap-fade-card">
           <span class="rank-num">5th.</span>
           <span class="rank-text">코딩 모르는 자동화 담당자가 이틀 만에 상담센터 행정 웹앱을 배포했어요</span>
           <time class="rank-time">2026.00.00</time>
@@ -218,13 +218,13 @@
     <div class="stats-overlay"></div>
 
     <div class="stats-container">
-      <p class="stats-intro">
+      <p class="stats-intro animate-fade-up">
         지피터스는 다양한 분야의 전문가들이 모여<br>
         AI의 새로운 가능성을 탐구하는 커뮤니티입니다.
       </p>
 
       <div class="stats-panels">
-        <div class="stats-grid">
+        <div class="stats-grid gsap-fade-card">
           <div class="stat-item">
             <p class="stat-label">월간 방문자수</p>
             <p class="stat-value" data-stat-value="1500" data-stat-suffix="+">0+</p>
@@ -239,13 +239,13 @@
           </div>
         </div>
 
-        <div class="stat-highlight">
+        <div class="stat-highlight gsap-fade-card">
           <p class="stat-label">Since</p>
           <p class="stat-value">2023</p>
         </div>
       </div>
 
-      <img src="assets/hub-tagline.svg" alt="Hub of Diverse AI Practical Use Cases" class="stats-watermark">
+      <img src="assets/hub-tagline.svg" alt="Hub of Diverse AI Practical Use Cases" class="stats-watermark gsap-scale-content">
     </div>
   </section>
 
@@ -257,7 +257,7 @@
       <div class="news-header">
         <div class="popular-titles">
           <h2 class="section-heading">News Room</h2>
-          <p class="section-desc">지피터스가 AI 관련 최신 뉴스를 알려드립니다.</p>
+          <p class="section-desc animate-fade-up">지피터스가 AI 관련 최신 뉴스를 알려드립니다.</p>
         </div>
 
         <div class="swiper-controls-group">
@@ -277,7 +277,7 @@
               </svg>
             </button>
           </div>
-          <a href="#contact" class="btn-pill btn-pill--sm news-view-all">
+          <a href="newsroom.html" target="_blank" class="btn-pill btn-pill--sm news-view-all">
             전체보기
             <span class="btn-pill-icon">
               <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
@@ -344,6 +344,9 @@
             </article>
           </div>
         </div>
+        <div class="swiper-progress" aria-hidden="true">
+          <div class="swiper-progress-fill" id="news-progress-fill"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -369,7 +372,7 @@
       <div class="news-header">
         <div class="popular-titles">
           <h2 class="section-heading">Events & Webinars</h2>
-          <p class="section-desc">AI 관련 무료 이벤트와 유료 웨비나를 소개합니다.</p>
+          <p class="section-desc animate-fade-up">AI 관련 무료 이벤트와 유료 웨비나를 소개합니다.</p>
         </div>
         <div class="swiper-arrow-box">
           <button class="events-prev swiper-arrow-btn" aria-label="이전 이벤트">
@@ -614,6 +617,9 @@
           </div>
 
         </div>
+        <div class="swiper-progress" aria-hidden="true">
+          <div class="swiper-progress-fill" id="events-progress-fill"></div>
+        </div>
       </div>
 
       <p class="events-watermark">GPTERS</p>
@@ -632,7 +638,7 @@
       </h2>
 
       <div class="contact-grid">
-        <article class="feature-card group">
+        <article class="feature-card group gsap-fade-card">
           <img src="assets/c123478f80451235cdb4e84ed3f867ef0627dbf3.c123478f.png" alt="뉴스레터 구독" class="feature-bg-img">
           <div class="feature-gradient"></div>
           <div class="feature-content">
@@ -658,7 +664,7 @@
           </div>
         </article>
 
-        <article class="feature-card group">
+        <article class="feature-card group gsap-fade-card">
           <img src="assets/056c9026d9544cf42934a4bb5726201d72dd9088.056c9026.png" alt="기업교육 문의" class="feature-bg-img">
           <div class="feature-gradient"></div>
           <div class="feature-content">
