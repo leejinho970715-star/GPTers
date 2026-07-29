@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       breakpoints: {
         640: { slidesPerView: 2.3, spaceBetween: 20 },
-        1024: { slidesPerView: 3.2, spaceBetween: 24 }, // 카드가 3개이므로 적절히 보기 좋게 설정
+        1024: { slidesPerView: 3.2, spaceBetween: 24 },
       },
       on: {
         progress(swiper, progress) {
