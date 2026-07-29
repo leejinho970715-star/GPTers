@@ -281,12 +281,6 @@ video {
   padding: 144px 20px;
 }
 
-/* Background sticky 효과는 메인페이지에서만 적용 (서브페이지 board.html/newsroom.html은 제외) */
-.page-home .hero-section {
-  position: sticky;
-  top: 0;
-}
-
 @media (min-width: 768px) {
   .hero-section {
     min-height: min(100vh, 1120px);
@@ -475,11 +469,6 @@ video {
   overflow: hidden;
   background-color: #fff;
   padding: 128px 20px;
-}
-
-.page-home .popular-section {
-  position: sticky;
-  top: 0;
 }
 
 @media (min-width: 768px) {
@@ -705,11 +694,6 @@ video {
   background-color: #050510;
   padding: 112px 20px;
   color: #fff;
-}
-
-.page-home .stats-section {
-  position: sticky;
-  top: 0;
 }
 
 @media (min-width: 768px) {

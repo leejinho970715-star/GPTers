@@ -207,12 +207,12 @@
 
   <!-- Section 2: Popular Posts Section -->
   <section id="popular" class="popular-section">
-    <img src="assets/post_section_bg.png" alt="부드러운 회색 질감 배경" class="section-texture">
+    <img src="assets/post_section_bg.png" alt="부드러운 회색 질감 배경" class="section-texture gsap-zoom-in">
 
     <div class="popular-grid">
       <div class="popular-header-col">
         <div class="popular-titles">
-          <h2 class="section-heading">
+          <h2 class="section-heading gsap-fade-left">
             Real-time <span class="highlight">Popular Posts</span>
           </h2>
           <p class="section-desc animate-fade-up">
@@ -220,7 +220,7 @@
           </p>
         </div>
 
-        <a href="board.html" target="_blank" class="btn-pill btn-pill--wide">
+        <a href="board.html" target="_blank" class="btn-pill btn-pill--wide gsap-fade-right">
           전체보기
           <span class="btn-pill-icon">
             <svg class="lucide lucide-arrow-right" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -265,9 +265,9 @@
 
   <!-- Section 3: Statistics Section -->
   <section id="stats-section" class="stats-section">
-    <img src="assets/stats_section_bg.png" alt="통계 영역 배경 그래픽" class="stats-bg-img">
+    <img src="assets/stats_section_bg.png" alt="통계 영역 배경 그래픽" class="stats-bg-img gsap-zoom-in gsap-parallax">
     <div class="stats-overlay"></div>
-    <img src="assets/logo_bg_icon.png" alt="" class="stats-logo-icon" aria-hidden="true">
+    <img src="assets/logo_bg_icon.png" alt="" class="stats-logo-icon gsap-rotate-in" aria-hidden="true">
 
     <div class="stats-container">
       <p class="stats-intro animate-fade-up">
@@ -297,18 +297,18 @@
         </div>
       </div>
 
-      <img src="assets/hub-tagline.svg" alt="Hub of Diverse AI Practical Use Cases" class="stats-watermark gsap-scale-content">
+      <img src="assets/hub-tagline.svg" alt="Hub of Diverse AI Practical Use Cases" class="stats-watermark gsap-zoom-in">
     </div>
   </section>
 
   <!-- Section 4: News Room Swiper Section -->
   <section id="news" class="news-section">
-    <img src="assets/newsroom_section_bg.png" alt="패턴 배경" class="section-texture">
+    <img src="assets/newsroom_section_bg.png" alt="패턴 배경" class="section-texture gsap-zoom-in">
 
     <div class="news-container">
       <div class="news-header">
         <div class="popular-titles">
-          <h2 class="section-heading">News Room</h2>
+          <h2 class="section-heading gsap-fade-right">News Room</h2>
           <p class="section-desc animate-fade-up">지피터스가 AI 관련 최신 뉴스를 알려드립니다.</p>
         </div>
 
@@ -349,7 +349,7 @@
             <article class="news-card group">
               <div class="news-img-box">
                 <img src="assets/main_newsroom_1.png" alt="Google, 잇따른 인재 유출"
-                  class="news-img">
+                  class="news-img gsap-rotate-in">
               </div>
               <h3 class="news-title">Google, 잇따른 인재 유출 - AI 인재 전쟁</h3>
               <time class="news-time">2026-06-29</time>
@@ -359,7 +359,7 @@
             <article class="news-card group">
               <div class="news-img-box">
                 <img src="assets/main_newsroom_2.png" alt="GPT-5.6 총정리"
-                  class="news-img">
+                  class="news-img gsap-rotate-in">
               </div>
               <h3 class="news-title">GPT-5.6 총정리, Sol·Terra·Luna 차이와 가격</h3>
               <time class="news-time">2026.07.06</time>
@@ -369,7 +369,7 @@
             <article class="news-card group">
               <div class="news-img-box">
                 <img src="assets/main_newsroom_3.png" alt="저커버그도 인정한 AI 에이전트 한계"
-                  class="news-img">
+                  class="news-img gsap-rotate-in">
               </div>
               <h3 class="news-title">저커버그도 인정한 AI 에이전트 한계</h3>
               <time class="news-time">2026.07.06</time>
@@ -379,7 +379,7 @@
             <article class="news-card group">
               <div class="news-img-box">
                 <img src="assets/main_newsroom_4.png" alt="AI 시대 커리어 조언 6가지"
-                  class="news-img">
+                  class="news-img gsap-rotate-in">
               </div>
               <h3 class="news-title">AI 시대 커리어 조언 6가지</h3>
               <time class="news-time">2026.07.06</time>
@@ -389,7 +389,7 @@
             <article class="news-card group">
               <div class="news-img-box">
                 <img src="assets/main_newsroom_5.png"
-                  alt="커서 IOS 폰으로 AI 코딩 에이전트를 하는 시대" class="news-img">
+                  alt="커서 IOS 폰으로 AI 코딩 에이전트를 하는 시대" class="news-img gsap-rotate-in">
               </div>
               <h3 class="news-title">커서 IOS 폰으로 AI 코딩 에이전트를 하는 시대</h3>
               <time class="news-time">2026.07.07</time>
@@ -405,14 +405,14 @@
 
   <!-- Section 5: Full Width Video Banner Section -->
   <section class="banner-section">
-    <video autoplay loop muted playsinline preload="auto" class="hero-video" aria-label="최신 AI 소식의 허브 배경 영상">
+    <video autoplay loop muted playsinline preload="auto" class="hero-video gsap-kenburns" aria-label="최신 AI 소식의 허브 배경 영상">
       <source src="assets/main_visual_video.8e52b77f.mp4" type="video/mp4">
     </video>
     <div class="banner-overlay"></div>
     <div class="banner-content">
-      <p class="animate-fade-up">최신 AI 소식의 허브</p>
-      <p class="animate-fade-up">국내 최대 AI 커뮤니티 지피터스에서</p>
-      <p class="highlight animate-fade-up">다양한 AI 실무 활용 사례를 만나보세요.</p>
+      <p class="gsap-fade-left">최신 AI 소식의 허브</p>
+      <p class="gsap-fade-right">국내 최대 AI 커뮤니티 지피터스에서</p>
+      <p class="highlight gsap-fade-up">다양한 AI 실무 활용 사례를 만나보세요.</p>
     </div>
   </section>
 
@@ -420,10 +420,10 @@
   <!-- Section 6: Events & Webinars Swiper Section -->
   <section id="events-section" class="events-section">
     <div class="events-container">
-      <img src="assets/logo_bg_icon.png" alt="" class="events-bg-icon" aria-hidden="true">
+      <img src="assets/logo_bg_icon.png" alt="" class="events-bg-icon gsap-rotate-in" aria-hidden="true">
       <div class="news-header">
         <div class="popular-titles">
-          <h2 class="section-heading">Events & Webinars</h2>
+          <h2 class="section-heading gsap-fade-left">Events & Webinars</h2>
           <p class="section-desc animate-fade-up">AI 관련 무료 이벤트와 유료 웨비나를 소개합니다.</p>
         </div>
         <div class="swiper-arrow-box">
@@ -450,7 +450,7 @@
 
           <div class="swiper-slide">
             <article class="event-card group">
-              <img src="assets/event_webinars_thum_1.png" alt="온라인 설명회" class="event-img">
+              <img src="assets/event_webinars_thum_1.png" alt="온라인 설명회" class="event-img gsap-zoom-in">
               <div class="event-info">
                 <p class="event-tag">[AI 스터디 23기]</p>
                 <p class="event-title">온라인 설명회</p>
@@ -494,7 +494,7 @@
 
           <div class="swiper-slide">
             <article class="event-card group">
-              <img src="assets/event_webinars_thum_2.png" alt="AI 중급 웨비나" class="event-img">
+              <img src="assets/event_webinars_thum_2.png" alt="AI 중급 웨비나" class="event-img gsap-zoom-in">
               <div class="event-info">
                 <p class="event-tag">[중급]</p>
                 <p class="event-title">AI 좀 써봤는데, 다음 단계는 뭘까요?</p>
@@ -538,7 +538,7 @@
 
           <div class="swiper-slide">
             <article class="event-card group">
-              <img src="assets/event_webinars_thum_3.png" alt="AI 고급 웨비나" class="event-img">
+              <img src="assets/event_webinars_thum_3.png" alt="AI 고급 웨비나" class="event-img gsap-zoom-in">
               <div class="event-info">
                 <p class="event-tag">[고급]</p>
                 <p class="event-title">이제, 나만의 AI 시스템을 만들 차례</p>
@@ -582,7 +582,7 @@
 
           <div class="swiper-slide">
             <article class="event-card group">
-              <img src="assets/event_webinars_thum_4.png" alt="업무 성과를 극대화시키는 실전 AX 방법" class="event-img">
+              <img src="assets/event_webinars_thum_4.png" alt="업무 성과를 극대화시키는 실전 AX 방법" class="event-img gsap-zoom-in">
               <div class="event-info">
                 <p class="event-tag">[AI 토크]</p>
                 <p class="event-title">업무 성과를 극대화시키는 실전 AX 방법</p>
@@ -626,7 +626,7 @@
 
           <div class="swiper-slide">
             <article class="event-card group">
-              <img src="assets/event_webinars_thum_5.png" alt="베스트 AI 활용사례 발표회" class="event-img">
+              <img src="assets/event_webinars_thum_5.png" alt="베스트 AI 활용사례 발표회" class="event-img gsap-zoom-in">
               <div class="event-info">
                 <p class="event-tag">[AI 무료 웨비나]</p>
                 <p class="event-title">베스트 AI 활용사례 발표회</p>
@@ -674,16 +674,16 @@
         </div>
       </div>
 
-      <p class="events-watermark">GPTERS</p>
+      <p class="events-watermark gsap-fade-right">GPTERS</p>
     </div>
   </section>
 
   <!-- Section 7: Inquiries and Subscriptions Section -->
   <section id="contact" class="contact-section">
-    <img src="assets/contact_section_bg.png" alt="네트워크 그래픽" class="contact-texture">
+    <img src="assets/contact_section_bg.png" alt="네트워크 그래픽" class="contact-texture gsap-zoom-in">
 
     <div class="contact-container">
-      <h2 class="contact-main-title">
+      <h2 class="contact-main-title gsap-fade-right">
         <span class="highlight">Inquiries</span><br>
         and<br>
         <span class="highlight">Subscriptions</span>
@@ -691,7 +691,7 @@
 
       <div class="contact-grid">
         <article class="feature-card group gsap-fade-card">
-          <img src="assets/thum_subscription.png" alt="뉴스레터 구독" class="feature-bg-img">
+          <img src="assets/thum_subscription.png" alt="뉴스레터 구독" class="feature-bg-img gsap-reveal-mask">
           <div class="feature-gradient"></div>
           <div class="feature-content">
             <p class="feature-sub">최신 트렌드부터 맞춤 활용법까지</p>
@@ -717,7 +717,7 @@
         </article>
 
         <article class="feature-card group gsap-fade-card">
-          <img src="assets/thum_contact.png" alt="기업교육 문의" class="feature-bg-img">
+          <img src="assets/thum_contact.png" alt="기업교육 문의" class="feature-bg-img gsap-reveal-mask">
           <div class="feature-gradient"></div>
           <div class="feature-content">
             <p class="feature-sub">100% 결과물 완전 보장</p>

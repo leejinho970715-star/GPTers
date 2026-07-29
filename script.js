@@ -233,10 +233,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 7. Advanced GSAP Scroll Animations (Text & Content Elements)
-  // 섹션마다 개별 ScrollTrigger로 스코프해서, 페이지의 어느 섹션이든 스크롤로 뷰포트에 들어올 때마다
-  // 그 섹션 안의 텍스트/이미지가 각각 독립적으로 하나씩 등장하도록 처리
+  // 요소마다 서로 다른 모션 클래스(위/좌/우 슬라이드, 줌인, 회전, 마스크 리빌, 패럴랙스)를 부여해
+  // 스크롤로 뷰포트에 들어올 때마다 텍스트/이미지가 다양한 방식으로 등장하도록 처리 (등장 모션은 모두 2초 지속)
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+
+    const ENTRANCE_DURATION = 2;
 
     // 7-0. 히어로 섹션은 스크롤 없이 처음부터 화면에 보이므로 스크롤 트리거 대신 페이지 로드 시 바로 등장
     const heroEntranceEls = document.querySelectorAll('.hero-section .animate-fade-up, .hero-section .gsap-fade-content');
@@ -251,57 +253,123 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    gsap.utils.toArray('section:not(.hero-section)').forEach((section) => {
-      // 7-1. 섹션 타이틀 및 헤더 텍스트
-      const heading = section.querySelectorAll('h1, h2, h3, .section-header, .animate-fade-up');
-      if (heading.length > 0) {
-        gsap.from(heading, {
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          y: 40,
-          opacity: 0,
-          duration: 2,
-          stagger: 0.2,
-          ease: 'power3.out',
-        });
-      }
+    // 7-1. 아래에서 위로 페이드 (본문 텍스트 기본 모션 — 기존 .animate-fade-up 마크업 호환 유지)
+    gsap.utils.toArray('section:not(.hero-section) .gsap-fade-up, section:not(.hero-section) .animate-fade-up').forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        y: 50,
+        opacity: 0,
+        duration: ENTRANCE_DURATION,
+        ease: 'power3.out',
+        clearProps: 'transform',
+      });
+    });
 
-      // 7-2. 콘텐츠 카드 및 일반 컴포넌트 (.gsap-fade-content 또는 .gsap-fade-card)
-      const contentElements = section.querySelectorAll('.gsap-fade-content, .gsap-fade-card');
-      if (contentElements.length > 0) {
-        gsap.from(contentElements, {
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
+    // 7-2. 왼쪽에서 슬라이드 등장 (섹션 타이틀 등)
+    gsap.utils.toArray('section:not(.hero-section) .gsap-fade-left').forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        x: -90,
+        opacity: 0,
+        duration: ENTRANCE_DURATION,
+        ease: 'power3.out',
+        clearProps: 'transform',
+      });
+    });
+
+    // 7-3. 오른쪽에서 슬라이드 등장 (타이틀/버튼 등)
+    gsap.utils.toArray('section:not(.hero-section) .gsap-fade-right').forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        x: 90,
+        opacity: 0,
+        duration: ENTRANCE_DURATION,
+        ease: 'power3.out',
+        clearProps: 'transform',
+      });
+    });
+
+    // 7-4. 카드/리스트 그룹 — 순차적으로 밀려오듯 등장 (.gsap-fade-card)
+    gsap.utils.toArray('section:not(.hero-section)').forEach((section) => {
+      const cardGroups = section.querySelectorAll('.gsap-fade-card');
+      if (cardGroups.length > 0) {
+        gsap.from(cardGroups, {
+          scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
           y: 60,
           opacity: 0,
-          duration: 2,
-          stagger: 0.15, // 여러 콘텐츠가 순차적으로 밀려오듯 등장
+          duration: ENTRANCE_DURATION,
+          stagger: 0.15,
           ease: 'power3.out',
+          clearProps: 'transform',
         });
       }
+    });
 
-      // 7-3. 이미지나 배너 등 스케일(확대) 효과가 함께 필요한 콘텐츠 (.gsap-scale-content)
-      const scaleElements = section.querySelectorAll('.gsap-scale-content');
-      if (scaleElements.length > 0) {
-        gsap.from(scaleElements, {
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-          scale: 0.92,
-          opacity: 0,
-          duration: 2,
-          stagger: 0.2,
-          ease: 'power2.out',
-        });
-      }
+    // 7-5. 이미지 줌인 등장 (배경/썸네일 이미지)
+    gsap.utils.toArray('.gsap-zoom-in').forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        scale: 0.85,
+        opacity: 0,
+        duration: ENTRANCE_DURATION,
+        ease: 'power2.out',
+        clearProps: 'transform',
+      });
+    });
+
+    // 7-6. 회전하며 등장 (아이콘/썸네일 이미지)
+    gsap.utils.toArray('.gsap-rotate-in').forEach((el) => {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        rotation: -14,
+        scale: 0.88,
+        opacity: 0,
+        duration: ENTRANCE_DURATION,
+        ease: 'power2.out',
+        clearProps: 'transform',
+      });
+    });
+
+    // 7-7. 클립 패스 마스크 리빌 — 커튼이 걷히듯 이미지가 드러남
+    gsap.utils.toArray('.gsap-reveal-mask').forEach((el) => {
+      gsap.fromTo(
+        el,
+        { clipPath: 'inset(0 100% 0 0)' },
+        {
+          clipPath: 'inset(0 0% 0 0)',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+          duration: ENTRANCE_DURATION,
+          ease: 'power3.inOut',
+        }
+      );
+    });
+
+    // 7-8. 배경 이미지 패럴랙스 — 섹션을 스크롤하는 동안 배경이 콘텐츠보다 느리게 움직여 입체감 연출
+    gsap.utils.toArray('.gsap-parallax').forEach((el) => {
+      gsap.to(el, {
+        yPercent: 15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el.closest('section') || el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+
+    // 7-9. 켄번즈 줌 — 섹션이 스크롤되는 동안 배경 영상/이미지가 서서히 확대
+    gsap.utils.toArray('.gsap-kenburns').forEach((el) => {
+      gsap.to(el, {
+        scale: 1.12,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: el.closest('section') || el,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
     });
 
     // 8. 스크롤 시 섹션을 고정하고, 세로 스크롤을 스와이퍼 가로 진행으로 변환
@@ -332,10 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
     });
 
-    // 9. Background Sticky 섹션 — CSS position:sticky만으로 다음 섹션이 부드럽게 위로 슬라이드되며
-    // 이전 섹션을 자연스럽게 덮는 효과를 연출 (별도의 축소/페이드 애니메이션 없이 스크롤에 그대로 동기화)
-
-    // 9-1. 스크롤 따라오는 로봇 컴패니언 — position:fixed로 항상 화면에 붙어있고,
+    // 9. 스크롤 따라오는 로봇 컴패니언 — position:fixed로 항상 화면에 붙어있고,
     // 스크롤 진행률에 맞춰 scrub로 부드럽게 계속 회전
     if (scrollRobotBtn) {
       gsap.to(scrollRobotBtn, {
