@@ -200,6 +200,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 5-2. Scroll Robot Companion — 클릭하면 맨 위로 부드럽게 스크롤
+  const scrollRobotBtn = document.getElementById('scroll-robot');
+  if (scrollRobotBtn) {
+    scrollRobotBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   // 6. Sticky Header on Scroll
   const header = document.querySelector('header');
   if (header) {
@@ -326,6 +334,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 9. Background Sticky 섹션 — CSS position:sticky만으로 다음 섹션이 부드럽게 위로 슬라이드되며
     // 이전 섹션을 자연스럽게 덮는 효과를 연출 (별도의 축소/페이드 애니메이션 없이 스크롤에 그대로 동기화)
+
+    // 9-1. 스크롤 따라오는 로봇 컴패니언 — position:fixed로 항상 화면에 붙어있고,
+    // 스크롤 진행률에 맞춰 scrub로 부드럽게 계속 회전
+    if (scrollRobotBtn) {
+      gsap.to(scrollRobotBtn, {
+        rotation: 1440,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.body,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.6,
+        },
+      });
+    }
 
     // 10. 이미지 등 늦게 로드되는 콘텐츠 때문에 문서 높이가 나중에 늘어나면서
     // pin 스페이서 계산이 어긋나 페이지 끝(푸터)이 밀리는 문제 방지 — 모든 리소스 로드 완료 후 강제로 재계산
