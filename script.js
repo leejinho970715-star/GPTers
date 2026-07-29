@@ -189,6 +189,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 5-1. Newsroom Hero Video → Image Fallback (동영상이 한 번 재생 완료되면 정지 이미지로 전환)
+  const newsroomHeroVideo = document.getElementById('newsroom-hero-video');
+  if (newsroomHeroVideo) {
+    const heroFallbackImg = document.querySelector('.hero-video-fallback');
+    newsroomHeroVideo.addEventListener('ended', () => {
+      if (heroFallbackImg) {
+        heroFallbackImg.classList.add('is-visible');
+      }
+    });
+  }
+
   // 6. Sticky Header on Scroll
   const header = document.querySelector('header');
   if (header) {

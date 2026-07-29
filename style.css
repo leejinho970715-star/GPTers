@@ -288,6 +288,16 @@ video {
   object-fit: cover;
 }
 
+.hero-video-fallback {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+}
+
+.hero-video-fallback.is-visible {
+  opacity: 1;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -997,11 +1007,6 @@ video {
   text-align: center;
 }
 
-.page-home .banner-section {
-  position: sticky;
-  top: 0;
-}
-
 @media (min-width: 768px) {
   .banner-section {
     min-height: 1200px;
@@ -1500,6 +1505,10 @@ video {
   }
 }
 
+.page-section-header .section-heading {
+  font-size: clamp(2rem, 4.15vw, 3.75rem);
+}
+
 .view-count {
   flex-shrink: 0;
   font-size: 1rem;
@@ -1534,7 +1543,7 @@ video {
 @media (min-width: 768px) {
   .post-card {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 40px;
     padding: 39px;
   }
@@ -1641,7 +1650,13 @@ video {
 }
 
 .post-more-btn {
-  margin-top: 4px;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .post-more-btn {
+    margin-top: auto;
+  }
 }
 
 .write-btn {
