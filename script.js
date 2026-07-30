@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7-1. 아래에서 위로 페이드 (본문 텍스트 기본 모션 — 기존 .animate-fade-up 마크업 호환 유지)
     gsap.utils.toArray('section:not(.hero-section) .gsap-fade-up, section:not(.hero-section) .animate-fade-up').forEach((el) => {
       gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none', invalidateOnRefresh: true },
         y: 50,
         opacity: 0,
         duration: ENTRANCE_DURATION,
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7-2. 왼쪽에서 슬라이드 등장 (섹션 타이틀 등)
     gsap.utils.toArray('section:not(.hero-section) .gsap-fade-left').forEach((el) => {
       gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none', invalidateOnRefresh: true },
         x: -90,
         opacity: 0,
         duration: ENTRANCE_DURATION,
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7-3. 오른쪽에서 슬라이드 등장 (타이틀/버튼 등)
     gsap.utils.toArray('section:not(.hero-section) .gsap-fade-right').forEach((el) => {
       gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none', invalidateOnRefresh: true },
         x: 90,
         opacity: 0,
         duration: ENTRANCE_DURATION,
@@ -289,12 +289,33 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // 7-3b. 배너 섹션 문구 — 섹션에 들어오면 한 줄씩 천천히 순차 등장
+    // (scrub 방식은 뒤쪽 pin 섹션들 때문에 문서 높이가 늦게 확정되면서 구간 계산이 어긋나
+    // 새로고침 시 아예 안 보이거나 순식간에 지나가는 문제가 있어 단일 트리거 방식으로 변경)
+    const bannerLines = document.querySelectorAll('.banner-content .banner-line');
+    if (bannerLines.length > 0) {
+      gsap.from(bannerLines, {
+        scrollTrigger: {
+          trigger: '.banner-content',
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+          invalidateOnRefresh: true,
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.4,
+        stagger: 0.6,
+        ease: 'power2.out',
+        clearProps: 'transform',
+      });
+    }
+
     // 7-4. 카드/리스트 그룹 — 순차적으로 밀려오듯 등장 (.gsap-fade-card)
     gsap.utils.toArray('section:not(.hero-section)').forEach((section) => {
       const cardGroups = section.querySelectorAll('.gsap-fade-card');
       if (cardGroups.length > 0) {
         gsap.from(cardGroups, {
-          scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
+          scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none', invalidateOnRefresh: true },
           y: 60,
           opacity: 0,
           duration: ENTRANCE_DURATION,
@@ -308,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7-5. 이미지 줌인 등장 (배경/썸네일 이미지)
     gsap.utils.toArray('.gsap-zoom-in').forEach((el) => {
       gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none', invalidateOnRefresh: true },
         scale: 0.85,
         opacity: 0,
         duration: ENTRANCE_DURATION,
@@ -320,8 +341,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7-6. 회전하며 등장 (아이콘/썸네일 이미지)
     gsap.utils.toArray('.gsap-rotate-in').forEach((el) => {
       gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
-        rotation: -14,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none', invalidateOnRefresh: true },
+        rotation: 45,
         scale: 0.88,
         opacity: 0,
         duration: ENTRANCE_DURATION,
@@ -330,16 +351,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // 7-7. 클립 패스 마스크 리빌 — 커튼이 걷히듯 이미지가 드러남
-    gsap.utils.toArray('.gsap-reveal-mask').forEach((el) => {
+    // 7-7. 스크롤에 비례해 이미지가 점점 커지며 원래 크기로 맞춰짐 (문의/구독 섹션 등)
+    // start/end를 요소 자체 기준으로 두고 invalidateOnRefresh로, 페이지 하단부 pin 섹션들 때문에
+    // 문서 높이가 늦게 확정되어도 실제로 뷰포트에 들어올 때만 애니메이션이 진행되도록 보정
+    gsap.utils.toArray('.gsap-scroll-grow').forEach((el) => {
       gsap.fromTo(
         el,
-        { clipPath: 'inset(0 100% 0 0)' },
+        { scale: 0.6 },
         {
-          clipPath: 'inset(0 0% 0 0)',
-          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
-          duration: ENTRANCE_DURATION,
-          ease: 'power3.inOut',
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 95%',
+            end: 'top 45%',
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
         }
       );
     });
@@ -354,6 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,
+          invalidateOnRefresh: true,
         },
       });
     });
@@ -368,6 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,
+          invalidateOnRefresh: true,
         },
       });
     });

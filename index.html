@@ -31,6 +31,18 @@
       <source src="assets/robot_GPTers_video.mp4" type="video/mp4">
     </video>
 
+    <div id="intro-stage-2" class="banner-section intro-stage-2 hidden">
+      <video id="intro-video-2" muted playsinline preload="auto" class="hero-video" aria-label="최신 AI 소식의 허브 영상">
+        <source src="assets/main_visual_video.8e52b77f.mp4" type="video/mp4">
+      </video>
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <p class="intro-line">최신 AI 소식의 허브</p>
+        <p class="intro-line">국내 최대 AI 커뮤니티 지피터스에서</p>
+        <p class="highlight intro-line">다양한 AI 실무 활용 사례를 만나보세요.</p>
+      </div>
+    </div>
+
     <button type="button" id="intro-skip-btn" class="btn-pill btn-pill--outline intro-skip-btn">
       건너뛰기
       <span class="btn-pill-icon">
@@ -46,7 +58,9 @@
 
   <script>
     (function () {
-      var video = document.getElementById('intro-video');
+      var video1 = document.getElementById('intro-video');
+      var stage2 = document.getElementById('intro-stage-2');
+      var video2 = document.getElementById('intro-video-2');
       var skipBtn = document.getElementById('intro-skip-btn');
       var hasNavigated = false;
 
@@ -56,7 +70,14 @@
         window.location.href = 'home.html';
       }
 
-      video.addEventListener('ended', goToMain);
+      function playStage2() {
+        video1.classList.add('hidden');
+        stage2.classList.remove('hidden');
+        video2.play();
+      }
+
+      video1.addEventListener('ended', playStage2);
+      video2.addEventListener('ended', goToMain);
       skipBtn.addEventListener('click', goToMain);
     })();
   </script>
