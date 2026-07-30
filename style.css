@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
 
-/* Pretendard Font fallback */
-@font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
-}
+/* Pretendard Font */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
 :root {
   --primary-accent: #fc9d1b;
@@ -1060,6 +1057,7 @@ video {
 /* Section 6: Events & Webinars Swiper Section */
 .events-section {
   position: relative;
+  overflow: hidden;
   background-color: #fff;
   padding: 128px 20px 0 20px;
 }
@@ -1102,6 +1100,14 @@ video {
   .events-bg-icon {
     top: -80px;
     left: -40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .events-bg-icon {
+    /* 1024px 이상은 섹션 상단 padding이 40px로 줄어드는 pin 상태라, 오프셋도 그 안에 맞춤 */
+    top: -20px;
+    left: -20px;
   }
 }
 
@@ -1903,13 +1909,15 @@ video {
   right: 16px;
   bottom: 16px;
   z-index: 25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   width: clamp(64px, 9vw, 110px);
-  height: auto;
   border: none;
   background: transparent;
   padding: 0;
   cursor: pointer;
-  will-change: transform;
 }
 
 .scroll-robot:focus-visible {
@@ -1922,6 +1930,15 @@ video {
   display: block;
   width: 100%;
   height: auto;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.scroll-robot-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #8b5cf6;
   pointer-events: none;
 }
 

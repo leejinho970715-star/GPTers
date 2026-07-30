@@ -431,9 +431,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 9. 스크롤 따라오는 로봇 컴패니언 — position:fixed로 항상 화면에 붙어있고,
-    // 스크롤 진행률에 맞춰 scrub로 부드럽게 계속 회전
-    if (scrollRobotBtn) {
-      gsap.to(scrollRobotBtn, {
+    // 스크롤 진행률에 맞춰 scrub로 부드럽게 계속 회전 (이미지만 회전, TOP 라벨은 고정)
+    const scrollRobotImg = scrollRobotBtn ? scrollRobotBtn.querySelector('.scroll-robot-img') : null;
+    if (scrollRobotImg) {
+      gsap.to(scrollRobotImg, {
         rotation: 1440,
         ease: 'none',
         scrollTrigger: {
